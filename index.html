@@ -1,0 +1,1129 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<title>STWP Daily Market Intelligence — 18 September 2026</title>
+<style>
+:root{
+ --navy:#0B1730;
+ --navy2:#123B6D;
+ --blue:#1769D1;
+ --blue-soft:#EAF3FF;
+ --teal:#008F83;
+ --teal-soft:#E7F8F5;
+ --green:#078A5B;
+ --green-soft:#E8F7F0;
+ --red:#D92D20;
+ --red-soft:#FDECEA;
+ --amber:#C58B00;
+ --amber-soft:#FFF6D8;
+ --ink:#172033;
+ --muted:#64748B;
+ --line:#D7E0EA;
+ --bg:#EEF3F8;
+ --card:#FFFFFF;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,Segoe UI,Arial,sans-serif}
+.wrap{max-width:1250px;margin:auto;padding:22px}
+.header{background:linear-gradient(135deg,var(--navy),var(--navy2));color:#fff;border-radius:18px;padding:24px 28px;margin-bottom:18px;box-shadow:0 10px 28px rgba(11,23,48,.12)}
+.header .brand{font-size:12px;letter-spacing:2px;opacity:.8;font-weight:800}
+.header h1{margin:6px 0 4px;font-size:28px}
+.header p{margin:0;opacity:.8;font-size:13px}
+.section-title{display:flex;align-items:end;justify-content:space-between;margin:22px 2px 12px}
+.section-title h2{margin:0;font-size:19px}
+.section-title p{margin:0;color:var(--muted);font-size:12px}
+.index-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.index-card{background:var(--card);border:1px solid var(--line);border-top:4px solid var(--blue);border-radius:16px;padding:16px;box-shadow:0 5px 16px rgba(16,24,40,.05)}
+.card-head{display:flex;justify-content:space-between;align-items:center}
+.eyebrow{font-size:9px;color:var(--blue);font-weight:900;letter-spacing:1.4px}
+.card-head h2{font-size:20px;margin:4px 0 0}
+.day{font-weight:900;font-size:14px;padding:7px 9px;border-radius:9px}
+.pos{color:var(--green);background:var(--green-soft)} .neg{color:var(--red);background:var(--red-soft)}
+.price-ema-row{display:grid;grid-template-columns:1fr 1.45fr;gap:12px;align-items:stretch;margin:15px 0}
+.cmp-box{background:#F7F9FC;border-radius:12px;padding:13px;display:flex;flex-direction:column;justify-content:center}
+.cmp-box span,.ema-grid span,.ohlc span{font-size:9px;color:var(--muted);font-weight:800;letter-spacing:.7px}
+.cmp-box strong{font-size:25px;margin-top:4px}
+.ema-grid{display:grid;grid-template-columns:1fr 1fr;gap:7px}
+.ema-grid div{background:var(--blue-soft);border:1px solid #C9DDF8;border-radius:9px;padding:8px}
+.ema-grid b{display:block;font-size:12px;margin-top:3px;color:var(--blue)}
+.ema-grid div:nth-child(3),.ema-grid div:nth-child(4){background:#F2F7FF}
+
+.ohlc{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:10px 0}
+.ohlc div{display:flex;flex-direction:column;gap:3px}
+.ohlc b{font-size:11px}
+.levels{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-top:11px}
+.level-group{background:#F8FAFC;border-radius:10px;padding:9px}
+.level-group h3{font-size:10px;margin:0 0 6px;text-transform:uppercase;letter-spacing:.8px}
+.level{display:flex;justify-content:space-between;font-size:11px;padding:3px 0}
+.level-group:first-child h3{color:var(--red)}
+.level-group:last-child h3{color:var(--green)}
+.level.r b{color:var(--red)}
+.level.s b{color:var(--green)}
+.observation{margin-top:10px;padding:9px 10px;border-radius:10px;background:#F7F9FC;display:flex;justify-content:space-between;gap:8px;font-size:10px}
+.observation span{color:var(--muted)} .observation b{text-align:right}
+.sector-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;background:linear-gradient(180deg,#FFFFFF,#F7FAFD);border:1px solid var(--line);padding:14px;border-radius:16px}
+.sector-row{display:grid;grid-template-columns:1.6fr .9fr .6fr;align-items:center;padding:10px 11px;border:1px solid #e5eaf1;border-radius:10px;background:#F9FBFD;font-size:12px}
+.sector-row b{text-align:right} .sector-row em{text-align:right;font-style:normal;font-weight:900}
+.up{color:var(--green);background:var(--green-soft);padding:3px 6px;border-radius:6px}
+.down{color:var(--red);background:var(--red-soft);padding:3px 6px;border-radius:6px}
+.flat{color:var(--amber);background:var(--amber-soft);padding:3px 6px;border-radius:6px} .muted{color:var(--muted)!important}
+.watch-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:9px}
+.watch-card{background:#fff;border:1px solid var(--line);border-top:3px solid var(--green);border-radius:12px;padding:12px;display:grid;grid-template-columns:1fr auto;gap:8px 10px;box-shadow:0 4px 12px rgba(16,24,40,.04)}
+.watch-main{min-width:0}
+.stock-link{display:block;font-size:14px;font-weight:900;color:var(--blue);text-decoration:none}
+.stock-link:hover{text-decoration:underline}
+.watch-status{display:block;font-size:9px;color:var(--green);font-weight:900;margin-top:3px;letter-spacing:.25px}
+.watch-price{font-size:13px;font-weight:900;align-self:start}
+.watch-levels{grid-column:1/-1;display:flex;justify-content:space-between;gap:5px;border-top:1px solid var(--line);padding-top:8px;font-size:10px}
+.watch-levels span{padding:4px 6px;border-radius:6px;font-weight:800}
+.pivot-mini{color:var(--blue);background:var(--blue-soft)}
+.res-mini{color:var(--red);background:var(--red-soft)}
+.sup-mini{color:var(--green);background:var(--green-soft)}
+.watch-ema{grid-column:1/-1;display:grid;grid-template-columns:1fr 1fr;gap:4px;font-size:9px;color:var(--muted)}
+.watch-ema span{display:flex;justify-content:space-between;background:#F7F9FC;padding:4px 6px;border-radius:5px}
+.watch-ema b{color:var(--blue)}
+
+.footer{margin-top:18px;padding:14px 4px;color:var(--muted);font-size:10px;line-height:1.5;text-align:center}
+@media(max-width:900px){.index-grid{grid-template-columns:1fr}.watch-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:600px){.wrap{padding:12px}.header h1{font-size:22px}.price-ema-row{grid-template-columns:1fr 1.6fr}.sector-grid{grid-template-columns:1fr}.watch-grid{grid-template-columns:1fr}.cmp-box strong{font-size:21px}}
+
+.stock-link{display:block;font-size:14px;font-weight:900;color:var(--blue);text-decoration:none;cursor:pointer}.stock-link:hover{text-decoration:underline}
+.watch-main{min-width:0}.watch-status{display:block;font-size:9px;color:var(--green);font-weight:900;margin-top:3px;letter-spacing:.25px}
+.stock-modal-backdrop{display:none;position:fixed;inset:0;background:rgba(11,23,48,.64);z-index:9999;padding:18px;overflow:auto}
+.stock-modal{max-width:900px;margin:2vh auto;background:#fff;border-radius:18px;padding:22px;position:relative;box-shadow:0 20px 60px rgba(0,0,0,.28)}
+.modal-close{position:absolute;right:14px;top:12px;border:0;background:#F1F5F9;border-radius:50%;width:34px;height:34px;font-size:23px;cursor:pointer}
+.modal-head{display:flex;justify-content:space-between;align-items:center;padding-right:38px;border-bottom:1px solid var(--line);padding-bottom:15px}
+.modal-head h2{margin:4px 0;font-size:25px}.modal-badge{font-size:9px;color:var(--green);font-weight:900}
+.modal-ltp{background:#F7F9FC;padding:10px 14px;border-radius:10px;text-align:right}.modal-ltp small{display:block;color:var(--muted);font-size:8px}.modal-ltp strong{font-size:20px}
+.detail-section{margin-top:16px}.detail-section h3{font-size:12px;margin:0 0 8px;color:var(--navy)}
+.data-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:7px}.data-grid>div,.ema-detail>div,.pivot-detail>div{border:1px solid #E2E8F0;background:#F8FAFC;border-radius:8px;padding:8px}
+.data-grid span,.ema-detail span,.pivot-detail span{display:block;font-size:8px;color:var(--muted);font-weight:800}.data-grid b,.ema-detail b,.pivot-detail b{display:block;font-size:11px;margin-top:3px}
+.ema-detail{display:grid;grid-template-columns:repeat(4,1fr);gap:7px}.ema-detail>div{background:var(--blue-soft);border-color:#C9DDF8}.ema-detail b{color:var(--blue)}
+.pivot-detail{display:grid;grid-template-columns:repeat(7,1fr);gap:7px}.pivot-detail .p{background:var(--blue-soft)}.pivot-detail .p b{color:var(--blue)}.pivot-detail .r{background:var(--red-soft)}.pivot-detail .r b{color:var(--red)}.pivot-detail .s{background:var(--green-soft)}.pivot-detail .s b{color:var(--green)}
+@media(max-width:650px){.data-grid{grid-template-columns:repeat(2,1fr)}.ema-detail{grid-template-columns:repeat(2,1fr)}.pivot-detail{grid-template-columns:repeat(4,1fr)}.stock-modal{padding:16px}}
+.watch-tags{margin-top:5px;font-size:8px;line-height:1.35;color:var(--muted);max-width:220px;white-space:normal}.watch-card{grid-template-columns:1fr auto}
+.availability-note{grid-column:1/-1;padding:12px 14px;border:1px dashed var(--line);border-radius:10px;background:#F8FAFC;color:var(--muted);font-size:13px;line-height:1.45}
+
+/* STWP COLOR PALETTE — visual enhancement */
+body{background:linear-gradient(180deg,#EAF2FB 0%,#F4F7FB 42%,#EEF3F8 100%)}
+.header{background:linear-gradient(135deg,#0B1730 0%,#123B6D 58%,#1769D1 100%);box-shadow:0 12px 30px rgba(11,23,48,.18);position:relative;overflow:hidden}
+.header:after{content:"";position:absolute;right:-80px;top:-110px;width:260px;height:260px;border-radius:50%;background:rgba(0,143,131,.20)}
+.header .brand,.header h1,.header p{position:relative;z-index:1}
+.section-title{padding:10px 13px;border-radius:11px;background:linear-gradient(90deg,#FFFFFF,#F7FAFD);border-left:5px solid var(--blue);box-shadow:0 4px 12px rgba(16,24,40,.04)}
+.section-title h2{color:var(--navy)}
+.index-card{position:relative;overflow:hidden;box-shadow:0 8px 20px rgba(16,24,40,.07);transition:transform .15s ease,box-shadow .15s ease}
+.index-card:hover{transform:translateY(-2px);box-shadow:0 12px 25px rgba(16,24,40,.10)}
+.index-card:nth-child(1){border-top-color:var(--blue)}
+.index-card:nth-child(2){border-top-color:var(--teal)}
+.index-card:nth-child(3){border-top-color:var(--red)}
+.card-head .eyebrow{background:var(--blue-soft);padding:4px 7px;border-radius:6px}
+.index-card:nth-child(2) .eyebrow{color:var(--teal);background:var(--teal-soft)}
+.index-card:nth-child(3) .eyebrow{color:var(--red);background:var(--red-soft)}
+.cmp-box{background:linear-gradient(145deg,#F7F9FC,#EAF3FF);border:1px solid #D9E8FA}
+.index-card:nth-child(2) .cmp-box{background:linear-gradient(145deg,#F3FCFA,#E7F8F5);border-color:#CBECE6}
+.index-card:nth-child(3) .cmp-box{background:linear-gradient(145deg,#FFF8F7,#FDECEA);border-color:#F5D0CC}
+.ema-grid div{box-shadow:inset 0 0 0 1px rgba(255,255,255,.45)}
+.level-group{border:1px solid var(--line)}
+.level-group:first-child{background:linear-gradient(145deg,#FFF8F7,#FDECEA)}
+.level-group:last-child{background:linear-gradient(145deg,#F2FBF7,#E8F7F0)}
+.observation{background:linear-gradient(90deg,#F7F9FC,#EEF5FC);border-left:3px solid var(--blue)}
+.sector-grid{background:linear-gradient(135deg,#FFFFFF,#EEF7FF);box-shadow:0 7px 18px rgba(16,24,40,.06)}
+.sector-row{background:#fff;transition:transform .12s ease,box-shadow .12s ease}
+.sector-row:hover{transform:translateX(2px);box-shadow:0 5px 12px rgba(16,24,40,.07)}
+.sector-row:has(.up){border-left:4px solid var(--green);background:linear-gradient(90deg,#F2FBF7,#FFFFFF)}
+.sector-row:has(.down){border-left:4px solid var(--red);background:linear-gradient(90deg,#FFF6F5,#FFFFFF)}
+.sector-row:has(.flat){border-left:4px solid var(--amber);background:linear-gradient(90deg,#FFFBEF,#FFFFFF)}
+.stock-link{color:var(--navy);font-size:15px;letter-spacing:.15px}
+.stock-link:hover{color:var(--blue);text-decoration:none;background:var(--blue-soft);border-radius:6px;padding-left:5px}
+/* Color the detail modal by information family */
+.stock-modal{background:linear-gradient(180deg,#FFFFFF 0%,#F9FBFE 100%);border:1px solid #D7E4F2}
+.modal-head{border-bottom:2px solid #E4ECF5}
+.modal-head h2{color:var(--navy)}
+.modal-badge{background:var(--green-soft);padding:5px 8px;border-radius:999px;color:var(--green)}
+.modal-ltp{background:linear-gradient(145deg,#EAF3FF,#F4F8FD);border:1px solid #CFE0F5}
+.detail-section{padding:12px;border-radius:12px;background:#fff;border:1px solid #E2E8F0;box-shadow:0 4px 10px rgba(16,24,40,.035)}
+.detail-section h3{padding:6px 9px;border-radius:7px;background:var(--blue-soft);color:var(--navy);border-left:4px solid var(--blue)}
+.detail-section:nth-of-type(2) h3{background:var(--teal-soft);border-left-color:var(--teal)}
+.detail-section:nth-of-type(3) h3{background:var(--amber-soft);border-left-color:var(--amber)}
+.data-grid>div{background:linear-gradient(145deg,#FFFFFF,#F3F7FB);border-color:#DCE5EF}
+.data-grid>div:nth-child(4n+1){border-top:2px solid var(--blue)}
+.data-grid>div:nth-child(4n+2){border-top:2px solid var(--teal)}
+.data-grid>div:nth-child(4n+3){border-top:2px solid var(--amber)}
+.data-grid>div:nth-child(4n){border-top:2px solid var(--green)}
+.ema-detail>div{background:linear-gradient(145deg,#EAF3FF,#F5F9FE)!important;border-color:#BDD5F2!important}
+.ema-detail>div:nth-child(2){background:linear-gradient(145deg,#E7F8F5,#F5FCFB)!important;border-color:#BFE5DE!important}
+.ema-detail>div:nth-child(3){background:linear-gradient(145deg,#FFF6D8,#FFFCF1)!important;border-color:#EBD78D!important}
+.ema-detail>div:nth-child(4){background:linear-gradient(145deg,#E8F7F0,#F6FCF9)!important;border-color:#BDE4D1!important}
+.pivot-detail .p{box-shadow:inset 0 3px 0 var(--blue)}
+.pivot-detail .r{box-shadow:inset 0 3px 0 var(--red)}
+.pivot-detail .s{box-shadow:inset 0 3px 0 var(--green)}
+/* Tag chips inside the popup */
+.detail-section b{line-height:1.4}
+.footer{background:#E6EDF6;border-top:1px solid #D3DFEC;border-radius:12px;padding:16px 12px}
+@media(max-width:900px){.watch-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:600px){.section-title{align-items:flex-start;gap:6px;flex-direction:column}.watch-grid{grid-template-columns:1fr}}
+
+
+/* STWP CLEAN WATCH LIST — retain original stock-box appearance */
+.watch-card{background:#fff;border:1px solid var(--line);border-top:3px solid var(--green);border-radius:12px;padding:12px;display:grid;grid-template-columns:1fr auto;gap:8px 10px;box-shadow:0 4px 12px rgba(16,24,40,.04);transition:none;overflow:visible}
+.watch-status{display:block!important;width:auto;padding:0;background:transparent;color:var(--green)!important;font-size:9px;font-weight:900;margin-top:3px;letter-spacing:.25px;border-radius:0}
+.watch-price{font-size:13px;font-weight:900;align-self:start;background:transparent;color:var(--ink);padding:0;border-radius:0}
+.watch-card:hover{transform:none;box-shadow:0 4px 12px rgba(16,24,40,.04)}
+</style>
+
+<style>
+.watch-tags{grid-column:1/-1;font-size:10px;line-height:1.45;color:var(--muted);margin-top:1px;padding-top:5px;border-top:1px solid var(--line);}
+.watch-tags{background:transparent!important;border-radius:0!important;padding-left:0;padding-right:0;}
+</style>
+
+<style>.watch-candle{grid-column:1/-1;font-size:10px;line-height:1.35;color:var(--ink);font-weight:700;margin-top:-2px;}</style>
+</head>
+<body>
+<div class="wrap">
+<header class="header">
+<div class="brand">STWP · DAILY MARKET INTELLIGENCE</div>
+<h1>Index &amp; Sector Intelligence</h1>
+<p>18 September 2026 · Market close index data with TradingView EMA references and sector snapshot</p>
+</header>
+<div class="section-title"><h2>01 · INDEX COMMAND CENTRE</h2><p>Price structure · OHLC · EMA map · reference levels</p></div>
+<div class="index-grid">
+<section class="index-card">
+<div class="card-head">
+<div>
+<div class="eyebrow">INDEX COMMAND CENTRE</div>
+<h2>NIFTY 50</h2>
+</div>
+<div class="day pos">+0.33%</div>
+</div>
+<div class="price-ema-row">
+<div class="cmp-box">
+<span>CMP</span>
+<strong>23,346.40</strong>
+</div>
+<div class="ema-grid">
+<div><span>EMA 20</span><b>23,483.40</b></div>
+<div><span>EMA 50</span><b>23,921.50</b></div>
+<div><span>EMA 100</span><b>24,052.90</b></div>
+<div><span>EMA 200</span><b>24,266.90</b></div>
+</div>
+</div>
+<div class="ohlc">
+<div><span>OPEN</span><b>23,334.70</b></div>
+<div><span>HIGH</span><b>23,389.15</b></div>
+<div><span>LOW</span><b>23,286.60</b></div>
+<div><span>CLOSE</span><b>23,346.40</b></div>
+</div>
+<div class="levels">
+<div class="level-group">
+<h3>Resistance</h3>
+<div class="level r"><span>R1</span><b>23,394.83</b></div>
+<div class="level r"><span>R2</span><b>23,443.27</b></div>
+<div class="level r"><span>R3</span><b>23,497.38</b></div>
+</div>
+<div class="level-group">
+<h3>Support</h3>
+<div class="level s"><span>S1</span><b>23,292.28</b></div>
+<div class="level s"><span>S2</span><b>23,238.17</b></div>
+<div class="level s"><span>S3</span><b>23,189.73</b></div>
+</div>
+</div>
+<div class="observation">
+<span>STWP Observation</span>
+<b>Below all key EMAs</b>
+</div>
+</section>
+<section class="index-card">
+<div class="card-head">
+<div>
+<div class="eyebrow">INDEX COMMAND CENTRE</div>
+<h2>BANK NIFTY</h2>
+</div>
+<div class="day pos">+0.54%</div>
+</div>
+<div class="price-ema-row">
+<div class="cmp-box">
+<span>CMP</span>
+<strong>56,358.70</strong>
+</div>
+<div class="ema-grid">
+<div><span>EMA 20</span><b>56,523.30</b></div>
+<div><span>EMA 50</span><b>57,037.00</b></div>
+<div><span>EMA 100</span><b>56,940.35</b></div>
+<div><span>EMA 200</span><b>56,733.65</b></div>
+</div>
+</div>
+<div class="ohlc">
+<div><span>OPEN</span><b>56,172.85</b></div>
+<div><span>HIGH</span><b>56,497.45</b></div>
+<div><span>LOW</span><b>56,073.55</b></div>
+<div><span>CLOSE</span><b>56,358.70</b></div>
+</div>
+<div class="levels">
+<div class="level-group">
+<h3>Resistance</h3>
+<div class="level r"><span>R1</span><b>56,546.25</b></div>
+<div class="level r"><span>R2</span><b>56,733.80</b></div>
+<div class="level r"><span>R3</span><b>56,970.15</b></div>
+</div>
+<div class="level-group">
+<h3>Support</h3>
+<div class="level s"><span>S1</span><b>56,122.35</b></div>
+<div class="level s"><span>S2</span><b>55,886.00</b></div>
+<div class="level s"><span>S3</span><b>55,698.45</b></div>
+</div>
+</div>
+<div class="observation">
+<span>STWP Observation</span>
+<b>Below all key EMAs</b>
+</div>
+</section>
+<section class="index-card">
+<div class="card-head">
+<div>
+<div class="eyebrow">INDEX COMMAND CENTRE</div>
+<h2>SENSEX</h2>
+</div>
+<div class="day neg">-0.03%</div>
+</div>
+<div class="price-ema-row">
+<div class="cmp-box">
+<span>CMP</span>
+<strong>74,294.96</strong>
+</div>
+<div class="ema-grid">
+<div><span>EMA 20</span><b>75,679.29</b></div>
+<div><span>EMA 50</span><b>76,479.78</b></div>
+<div><span>EMA 100</span><b>77,029.09</b></div>
+<div><span>EMA 200</span><b>78,081.99</b></div>
+</div>
+</div>
+<div class="ohlc">
+<div><span>OPEN</span><b>74,575.24</b></div>
+<div><span>HIGH</span><b>74,728.44</b></div>
+<div><span>LOW</span><b>74,294.96</b></div>
+<div><span>CLOSE</span><b>74,294.96</b></div>
+</div>
+<div class="levels">
+<div class="level-group">
+<h3>Resistance</h3>
+<div class="level r"><span>R1</span><b>74,583.95</b></div>
+<div class="level r"><span>R2</span><b>74,872.93</b></div>
+<div class="level r"><span>R3</span><b>75,017.43</b></div>
+</div>
+<div class="level-group">
+<h3>Support</h3>
+<div class="level s"><span>S1</span><b>74,150.47</b></div>
+<div class="level s"><span>S2</span><b>74,005.97</b></div>
+<div class="level s"><span>S3</span><b>73,716.99</b></div>
+</div>
+</div>
+<div class="observation">
+<span>STWP Observation</span>
+<b>Below all key EMAs</b>
+</div>
+</section>
+</div>
+<div class="section-title"><h2>02 · STWP SECTOR INTELLIGENCE</h2><p>18 Sep 2026 intraday sector snapshot</p></div>
+<div class="sector-grid"><div class="sector-row"><span>Nifty Auto</span><b>27,265.75</b><em class="up">+0.39%</em></div><div class="sector-row"><span>Nifty Consumer Durables</span><b>37,966.05</b><em class="down">-0.12%</em></div><div class="sector-row"><span>Nifty Financial Services</span><b>25,546.80</b><em class="up">+0.90%</em></div><div class="sector-row"><span>Nifty FMCG</span><b>45,592.35</b><em class="up">+0.04%</em></div><div class="sector-row"><span>Nifty Healthcare</span><b>16,600.30</b><em class="up">+0.43%</em></div><div class="sector-row"><span>Nifty IT</span><b>28,698.40</b><em class="down">-1.57%</em></div><div class="sector-row"><span>Nifty Media</span><b>1,555.85</b><em class="up">+1.48%</em></div><div class="sector-row"><span>Nifty Metal</span><b>13,013.25</b><em class="up">+1.20%</em></div><div class="sector-row"><span>Nifty Oil &amp; Gas</span><b>10,964.60</b><em class="up">+0.99%</em></div><div class="sector-row"><span>Nifty Pharma</span><b>26,681.55</b><em class="up">+0.38%</em></div><div class="sector-row"><span>Nifty PSU Bank</span><b>8,299.60</b><em class="up">+0.45%</em></div><div class="sector-row"><span>Nifty Private Bank</span><b>27,384.10</b><em class="up">+0.79%</em></div><div class="sector-row"><span>Nifty Realty</span><b>850.40</b><em class="up">+1.94%</em></div><div class="sector-row"><span>Nifty Infra</span><b>9,071.30</b><em class="up">+1.14%</em></div><div class="sector-row"><span>Nifty Energy</span><b class="muted">Data not available in current snapshot</b><em class="muted">—</em></div></div>
+<div class="section-title"><h2>03 · STWP WATCH LIST</h2><p>Strong + Developing bullish set · click a stock for full data</p></div>
+<div class="watch-grid"><div class="watch-card">
+<div class="watch-main">
+<a class="stock-link" href="#stock-ACE" onclick="openStock('ACE');return false;">ACE ↗</a>
+<span class="watch-status">DEVELOPING · BULLISH</span>
+<div class="watch-tags">Momentum; Higher High + Higher Low; Bullish Momentum; 52 Week High; Swing Trade</div>
+</div>
+<div class="watch-price">₹1,229.20</div>
+</div><div class="watch-card">
+<div class="watch-main">
+<a class="stock-link" href="#stock-ACUTAAS" onclick="openStock('ACUTAAS');return false;">ACUTAAS ↗</a>
+<span class="watch-status">STRONG · BULLISH</span>
+<div class="watch-tags">VWAP Reclaim / Hold; Higher High + Higher Low; EMA 20 Pullback; Strong Bullish Candle</div>
+</div>
+<div class="watch-price">₹3,440.30</div>
+</div><div class="watch-card">
+<div class="watch-main">
+<a class="stock-link" href="#stock-ADANIPORTS" onclick="openStock('ADANIPORTS');return false;">ADANIPORTS ↗</a>
+<span class="watch-status">DEVELOPING · BULLISH</span>
+<div class="watch-tags">Momentum; VWAP Reclaim / Hold; Higher High + Higher Low; Bullish Marubozu; Strong Bullish Candle; Bullish Momentum; Swing Trade; Possible Breakout</div>
+<div class="watch-candle">Candle: Bullish Marubozu</div>
+</div>
+<div class="watch-price">₹1,824.00</div>
+</div><div class="watch-card">
+<div class="watch-main">
+<a class="stock-link" href="#stock-AEGISLOG" onclick="openStock('AEGISLOG');return false;">AEGISLOG ↗</a>
+<span class="watch-status">STRONG · BULLISH</span>
+<div class="watch-tags">Momentum; VWAP Reclaim / Hold; Higher High + Higher Low; Strong Bullish Candle; Bullish Momentum; Swing Trade</div>
+</div>
+<div class="watch-price">₹1,415.40</div>
+</div><div class="watch-card">
+<div class="watch-main">
+<a class="stock-link" href="#stock-ALIVUS" onclick="openStock('ALIVUS');return false;">ALIVUS ↗</a>
+<span class="watch-status">DEVELOPING · BULLISH</span>
+<div class="watch-tags">Momentum; VWAP Reclaim / Hold; Higher High + Higher Low; EMA 20 Pullback; Strong Bullish Candle; Swing Trade</div>
+</div>
+<div class="watch-price">₹1,430.80</div>
+</div><div class="watch-card">
+<div class="watch-main">
+<a class="stock-link" href="#stock-APARINDS" onclick="openStock('APARINDS');return false;">APARINDS ↗</a>
+<span class="watch-status">STRONG · BULLISH</span>
+<div class="watch-tags">Momentum; VWAP Reclaim / Hold; Higher High + Higher Low; Strong Bullish Candle; Bullish Momentum; 52 Week High; Swing Trade</div>
+</div>
+<div class="watch-price">₹18,858.00</div>
+</div><div class="watch-card">
+<div class="watch-main">
+<a class="stock-link" href="#stock-APLAPOLLO" onclick="openStock('APLAPOLLO');return false;">APLAPOLLO ↗</a>
+<span class="watch-status">DEVELOPING · BULLISH</span>
+<div class="watch-tags">Momentum; VWAP Reclaim / Hold; Higher High + Higher Low; EMA 20 Pullback; Bullish Marubozu; Strong Bullish Candle; Bullish Momentum; Swing Trade; Possible Breakout</div>
+<div class="watch-candle">Candle: Bullish Marubozu</div>
+</div>
+<div class="watch-price">₹2,270.10</div>
+</div><div class="watch-card">
+<div class="watch-main">
+<a class="stock-link" href="#stock-AUROPHARMA" onclick="openStock('AUROPHARMA');return false;">AUROPHARMA ↗</a>
+<span class="watch-status">DEVELOPING · BULLISH</span>
+<div class="watch-tags">Momentum; VWAP Reclaim / Hold; Higher High + Higher Low; EMA 20 Pullback; Three Outside Up; Strong Bullish Candle; Bullish Momentum; 52 Week High; Swing Trade</div>
+<div class="watch-candle">Candle: Three Outside Up</div>
+</div>
+<div class="watch-price">₹1,734.00</div>
+</div><div class="watch-card">
+<div class="watch-main">
+<a class="stock-link" href="#stock-AVALON" onclick="openStock('AVALON');return false;">AVALON ↗</a>
+<span class="watch-status">STRONG · BULLISH</span>
+<div class="watch-tags">Momentum; VWAP Reclaim / Hold; Higher High + Higher Low; EMA 20 Pullback; Strong Bullish Candle; Bullish Momentum; 52 Week High; Swing Trade</div>
+</div>
+<div class="watch-price">₹2,537.70</div>
+</div><div class="watch-card">
+<div class="watch-main">
+<a class="stock-link" href="#stock-AZAD" onclick="openStock('AZAD');return false;">AZAD ↗</a>
+<span class="watch-status">DEVELOPING · BULLISH</span>
+<div class="watch-tags">EMA 20 Pullback; Strong Bullish Candle</div>
+</div>
+<div class="watch-price">₹2,790.30</div>
+</div><div class="watch-card">
+<div class="watch-main">
+<a class="stock-link" href="#stock-BBTC" onclick="openStock('BBTC');return false;">BBTC ↗</a>
+<span class="watch-status">DEVELOPING · BULLISH</span>
+<div class="watch-tags">EMA 20 Pullback; Above The Stomach; Strong Bullish Candle</div>
+<div class="watch-candle">Candle: Above The Stomach</div>
+</div>
+<div class="watch-price">₹1,512.10</div>
+</div><div class="watch-card">
+<div class="watch-main">
+<a class="stock-link" href="#stock-BEML" onclick="openStock('BEML');return false;">BEML ↗</a>
+<span class="watch-status">STRONG · BULLISH</span>
+<div class="watch-tags">Momentum; VWAP Reclaim / Hold; Higher High + Higher Low; Strong Bullish Candle; Swing Trade; Possible Breakout</div>
+</div>
+<div class="watch-price">₹2,135.00</div>
+</div><div class="watch-card">
+<div class="watch-main">
+<a class="stock-link" href="#stock-COROMANDEL" onclick="openStock('COROMANDEL');return false;">COROMANDEL ↗</a>
+<span class="watch-status">DEVELOPING · BULLISH</span>
+<div class="watch-tags">EMA 20 Pullback; Bullish Engulfing; Bullish Tweezer Bottom; Strong Bullish Candle</div>
+<div class="watch-candle">Candle: Bullish Engulfing; Bullish Tweezer Bottom</div>
+</div>
+<div class="watch-price">₹1,999.50</div>
+</div><div class="watch-card">
+<div class="watch-main">
+<a class="stock-link" href="#stock-GMMPFAUDLR" onclick="openStock('GMMPFAUDLR');return false;">GMMPFAUDLR ↗</a>
+<span class="watch-status">STRONG · BULLISH</span>
+<div class="watch-tags">VWAP Reclaim / Hold; Higher High + Higher Low; Three Outside Up; Bullish Marubozu; Strong Bullish Candle; Bullish Momentum; 52 Week High; Swing Trade</div>
+<div class="watch-candle">Candle: Three Outside Up; Bullish Marubozu</div>
+</div>
+<div class="watch-price">₹1,467.00</div>
+</div><div class="watch-card">
+<div class="watch-main">
+<a class="stock-link" href="#stock-HOMEFIRST" onclick="openStock('HOMEFIRST');return false;">HOMEFIRST ↗</a>
+<span class="watch-status">STRONG · BULLISH</span>
+<div class="watch-tags">Momentum; VWAP Reclaim / Hold; EMA 20 Pullback; Strong Bullish Candle; Bullish Momentum; Swing Trade</div>
+</div>
+<div class="watch-price">₹1,241.30</div>
+</div><div class="watch-card">
+<div class="watch-main">
+<a class="stock-link" href="#stock-IKS" onclick="openStock('IKS');return false;">IKS ↗</a>
+<span class="watch-status">DEVELOPING · BULLISH</span>
+<div class="watch-tags">EMA 20 Pullback; Bullish Engulfing; Strong Bullish Candle</div>
+<div class="watch-candle">Candle: Bullish Engulfing</div>
+</div>
+<div class="watch-price">₹1,779.90</div>
+</div><div class="watch-card">
+<div class="watch-main">
+<a class="stock-link" href="#stock-INDOMIM" onclick="openStock('INDOMIM');return false;">INDOMIM ↗</a>
+<span class="watch-status">STRONG · BULLISH</span>
+<div class="watch-tags">Momentum; VWAP Reclaim / Hold; Higher High + Higher Low; Strong Bullish Candle; Bullish Momentum; Swing Trade</div>
+</div>
+<div class="watch-price">₹1,055.90</div>
+</div><div class="watch-card">
+<div class="watch-main">
+<a class="stock-link" href="#stock-JYOTICNC" onclick="openStock('JYOTICNC');return false;">JYOTICNC ↗</a>
+<span class="watch-status">STRONG · BULLISH</span>
+<div class="watch-tags">Momentum; VWAP Reclaim / Hold; Higher High + Higher Low; EMA 20 Pullback; Strong Bullish Candle; Bullish Momentum; 52 Week High; Swing Trade</div>
+</div>
+<div class="watch-price">₹1,049.70</div>
+</div><div class="watch-card">
+<div class="watch-main">
+<a class="stock-link" href="#stock-KPIL" onclick="openStock('KPIL');return false;">KPIL ↗</a>
+<span class="watch-status">STRONG · BULLISH</span>
+<div class="watch-tags">Momentum; VWAP Reclaim / Hold; Higher High + Higher Low; EMA 20 Pullback; Strong Bullish Candle; Bullish Momentum; Swing Trade; Possible Breakout</div>
+</div>
+<div class="watch-price">₹1,445.50</div>
+</div><div class="watch-card">
+<div class="watch-main">
+<a class="stock-link" href="#stock-LGEINDIA" onclick="openStock('LGEINDIA');return false;">LGEINDIA ↗</a>
+<span class="watch-status">DEVELOPING · BULLISH</span>
+<div class="watch-tags">Momentum; VWAP Reclaim / Hold; Higher High + Higher Low; EMA 20 Pullback; Three Outside Up; Strong Bullish Candle; Swing Trade</div>
+<div class="watch-candle">Candle: Three Outside Up</div>
+</div>
+<div class="watch-price">₹1,696.90</div>
+</div><div class="watch-card">
+<div class="watch-main">
+<a class="stock-link" href="#stock-MACPOWER" onclick="openStock('MACPOWER');return false;">MACPOWER ↗</a>
+<span class="watch-status">STRONG · BULLISH</span>
+<div class="watch-tags">Momentum; VWAP Reclaim / Hold; Higher High + Higher Low; Strong Bullish Candle; Bullish Momentum; 52 Week High; Swing Trade</div>
+</div>
+<div class="watch-price">₹2,104.50</div>
+</div><div class="watch-card">
+<div class="watch-main">
+<a class="stock-link" href="#stock-NAVINFLUOR" onclick="openStock('NAVINFLUOR');return false;">NAVINFLUOR ↗</a>
+<span class="watch-status">DEVELOPING · BULLISH</span>
+<div class="watch-tags">VWAP Reclaim / Hold; Higher High + Higher Low; EMA 20 Pullback; Three Outside Up; Strong Bullish Candle</div>
+<div class="watch-candle">Candle: Three Outside Up</div>
+</div>
+<div class="watch-price">₹8,590.00</div>
+</div><div class="watch-card">
+<div class="watch-main">
+<a class="stock-link" href="#stock-NELCO" onclick="openStock('NELCO');return false;">NELCO ↗</a>
+<span class="watch-status">STRONG · BULLISH</span>
+<div class="watch-tags">Momentum; VWAP Reclaim / Hold; Higher High + Higher Low; Strong Bullish Candle; Bullish Momentum; Swing Trade</div>
+</div>
+<div class="watch-price">₹1,011.85</div>
+</div><div class="watch-card">
+<div class="watch-main">
+<a class="stock-link" href="#stock-PVRINOX" onclick="openStock('PVRINOX');return false;">PVRINOX ↗</a>
+<span class="watch-status">DEVELOPING · BULLISH</span>
+<div class="watch-tags">Momentum; VWAP Reclaim / Hold; Higher High + Higher Low; Strong Bullish Candle; Bullish Momentum; 52 Week High; Swing Trade</div>
+</div>
+<div class="watch-price">₹1,324.70</div>
+</div><div class="watch-card">
+<div class="watch-main">
+<a class="stock-link" href="#stock-SANSERA" onclick="openStock('SANSERA');return false;">SANSERA ↗</a>
+<span class="watch-status">STRONG · BULLISH</span>
+<div class="watch-tags">Momentum; VWAP Reclaim / Hold; Higher High + Higher Low; Strong Bullish Candle; Bullish Momentum; 52 Week High; Swing Trade</div>
+</div>
+<div class="watch-price">₹4,259.90</div>
+</div><div class="watch-card">
+<div class="watch-main">
+<a class="stock-link" href="#stock-SHILPAMED" onclick="openStock('SHILPAMED');return false;">SHILPAMED ↗</a>
+<span class="watch-status">DEVELOPING · BULLISH</span>
+<div class="watch-tags">VWAP Reclaim / Hold; Higher High + Higher Low; Strong Bullish Candle; Bullish Momentum; 52 Week High; Swing Trade</div>
+</div>
+<div class="watch-price">₹1,021.10</div>
+</div><div class="watch-card">
+<div class="watch-main">
+<a class="stock-link" href="#stock-SHYAMMETL" onclick="openStock('SHYAMMETL');return false;">SHYAMMETL ↗</a>
+<span class="watch-status">DEVELOPING · BULLISH</span>
+<div class="watch-tags">Momentum; VWAP Reclaim / Hold; Higher High + Higher Low; Strong Bullish Candle; Bullish Momentum; Swing Trade</div>
+</div>
+<div class="watch-price">₹1,106.60</div>
+</div><div class="watch-card">
+<div class="watch-main">
+<a class="stock-link" href="#stock-SJS" onclick="openStock('SJS');return false;">SJS ↗</a>
+<span class="watch-status">DEVELOPING · BULLISH</span>
+<div class="watch-tags">EMA 20 Pullback; Above The Stomach; Strong Bullish Candle</div>
+<div class="watch-candle">Candle: Above The Stomach</div>
+</div>
+<div class="watch-price">₹2,422.80</div>
+</div><div class="watch-card">
+<div class="watch-main">
+<a class="stock-link" href="#stock-SUPREMEIND" onclick="openStock('SUPREMEIND');return false;">SUPREMEIND ↗</a>
+<span class="watch-status">DEVELOPING · BULLISH</span>
+<div class="watch-tags">EMA 20 Pullback; Bullish Marubozu; Strong Bullish Candle</div>
+<div class="watch-candle">Candle: Bullish Marubozu</div>
+</div>
+<div class="watch-price">₹3,580.30</div>
+</div><div class="watch-card">
+<div class="watch-main">
+<a class="stock-link" href="#stock-SYRMA" onclick="openStock('SYRMA');return false;">SYRMA ↗</a>
+<span class="watch-status">STRONG · BULLISH</span>
+<div class="watch-tags">VWAP Reclaim / Hold; Higher High + Higher Low; Strong Bullish Candle; Bullish Momentum; 52 Week High; One day Bullish Stock; Swing Trade</div>
+</div>
+<div class="watch-price">₹1,728.90</div>
+</div><div class="watch-card">
+<div class="watch-main">
+<a class="stock-link" href="#stock-TBOTEK" onclick="openStock('TBOTEK');return false;">TBOTEK ↗</a>
+<span class="watch-status">DEVELOPING · BULLISH</span>
+<div class="watch-tags">VWAP Reclaim / Hold; Higher High + Higher Low; EMA 20 Pullback; Strong Bullish Candle; Possible Breakout</div>
+</div>
+<div class="watch-price">₹1,715.00</div>
+</div><div class="watch-card">
+<div class="watch-main">
+<a class="stock-link" href="#stock-TECHNOE" onclick="openStock('TECHNOE');return false;">TECHNOE ↗</a>
+<span class="watch-status">DEVELOPING · BULLISH</span>
+<div class="watch-tags">EMA 20 Pullback; Strong Bullish Candle</div>
+</div>
+<div class="watch-price">₹1,030.45</div>
+</div><div class="watch-card">
+<div class="watch-main">
+<a class="stock-link" href="#stock-UNOMINDA" onclick="openStock('UNOMINDA');return false;">UNOMINDA ↗</a>
+<span class="watch-status">DEVELOPING · BULLISH</span>
+<div class="watch-tags">Momentum; EMA 20 Pullback; Bullish Marubozu; Strong Bullish Candle; Bullish Momentum; Swing Trade</div>
+<div class="watch-candle">Candle: Bullish Marubozu</div>
+</div>
+<div class="watch-price">₹1,284.00</div>
+</div><div class="watch-card">
+<div class="watch-main">
+<a class="stock-link" href="#stock-VENUSPIPES" onclick="openStock('VENUSPIPES');return false;">VENUSPIPES ↗</a>
+<span class="watch-status">STRONG · BULLISH</span>
+<div class="watch-tags">VWAP Reclaim / Hold; Higher High + Higher Low; Strong Bullish Candle; Bullish Momentum; 52 Week High; Swing Trade</div>
+</div>
+<div class="watch-price">₹2,282.90</div>
+</div><div class="watch-card">
+<div class="watch-main">
+<a class="stock-link" href="#stock-VIJAYA" onclick="openStock('VIJAYA');return false;">VIJAYA ↗</a>
+<span class="watch-status">DEVELOPING · BULLISH</span>
+<div class="watch-tags">Momentum; VWAP Reclaim / Hold; Higher High + Higher Low; EMA 20 Pullback; Strong Bullish Candle; Bullish Momentum; Swing Trade</div>
+</div>
+<div class="watch-price">₹1,558.90</div>
+</div><div class="watch-card">
+<div class="watch-main">
+<a class="stock-link" href="#stock-WELCORP" onclick="openStock('WELCORP');return false;">WELCORP ↗</a>
+<span class="watch-status">DEVELOPING · BULLISH</span>
+<div class="watch-tags">Momentum; VWAP Reclaim / Hold; Higher High + Higher Low; Bullish Marubozu; Strong Bullish Candle; Swing Trade</div>
+<div class="watch-candle">Candle: Bullish Marubozu</div>
+</div>
+<div class="watch-price">₹2,660.10</div>
+</div><div class="watch-card">
+<div class="watch-main">
+<a class="stock-link" href="#stock-YATHARTH" onclick="openStock('YATHARTH');return false;">YATHARTH ↗</a>
+<span class="watch-status">STRONG · BULLISH</span>
+<div class="watch-tags">Higher High + Higher Low; Bullish Momentum; 52 Week High; One day Bullish Stock; Swing Trade</div>
+</div>
+<div class="watch-price">₹1,139.50</div>
+</div><div class="watch-card">
+<div class="watch-main">
+<a class="stock-link" href="#stock-ZYDUSLIFE" onclick="openStock('ZYDUSLIFE');return false;">ZYDUSLIFE ↗</a>
+<span class="watch-status">DEVELOPING · BULLISH</span>
+<div class="watch-tags">—</div>
+</div>
+<div class="watch-price">₹1,160.00</div>
+</div></div>
+<div class="footer">
+<strong>STWP Market Intelligence · Educational market-observation dashboard.</strong><br/>
+  Not investment advice, a recommendation, or a solicitation to buy or sell securities.
+</div>
+</div>
+<div class="stock-modal-backdrop" id="stock-modal-ACE" onclick="closeStock(event)">
+<div class="stock-modal">
+<button class="modal-close" onclick="hideStock()">×</button>
+<div class="modal-head"><div><div class="eyebrow">STWP STOCK DETAIL</div><h2>ACE</h2><span class="modal-badge">DEVELOPING · BULLISH</span></div><div class="modal-ltp"><small>LTP</small><strong>₹1,229.20</strong></div></div>
+<div class="detail-section"><h3>Market Intelligence</h3><div class="data-grid">
+<div><span>Status</span><b>DEVELOPING · BULLISH</b></div><div><span>Expected Move</span><b>+2.8% → 1263.73 · 1–5 sessions</b></div><div><span>Candlestick Pattern</span><b>Not detected</b></div><div><span>Support</span><b>1206.97 / 1184.73 / 1167.47</b></div><div><span>Resistance</span><b>1246.47 / 1263.73 / 1285.97</b></div>
+</div></div>
+<div class="detail-section"><h3>Technical Data</h3><div class="data-grid">
+<div><span>Open</span><b>1,212.30</b></div><div><span>High</span><b>1,241.50</b></div><div><span>Low</span><b>1,202.00</b></div><div><span>Close</span><b>1,229.20</b></div>
+<div><span>Volume</span><b>881,443.00</b></div><div><span>20D Avg Volume</span><b>340,131.30</b></div><div><span>RSI</span><b>69.42</b></div><div><span>MACD</span><b>6.44</b></div><div><span>ADX</span><b>28.37</b></div><div><span>VWAP</span><b>1,226.24</b></div><div><span>ATR</span><b>45.34</b></div><div><span>Sector</span><b>industrials</b></div>
+</div></div>
+<div class="detail-section"><h3>EMA MAP</h3><div class="ema-detail"><div><span>EMA 20</span><b>1,141.96</b></div><div><span>EMA 50</span><b>1,096.93</b></div><div><span>EMA 100</span><b>1,041.88</b></div><div><span>EMA 200</span><b>1,014.95</b></div></div></div>
+<div class="detail-section"><h3>Pivot Map</h3><div class="pivot-detail"><div class="p"><span>P</span><b>1,224.23</b></div><div class="r"><span>R1</span><b>1,246.47</b></div><div class="r"><span>R2</span><b>1,263.73</b></div><div class="r"><span>R3</span><b>1,285.97</b></div><div class="s"><span>S1</span><b>1,206.97</b></div><div class="s"><span>S2</span><b>1,184.73</b></div><div class="s"><span>S3</span><b>1,167.47</b></div></div></div>
+</div></div><div class="stock-modal-backdrop" id="stock-modal-ACUTAAS" onclick="closeStock(event)">
+<div class="stock-modal">
+<button class="modal-close" onclick="hideStock()">×</button>
+<div class="modal-head"><div><div class="eyebrow">STWP STOCK DETAIL</div><h2>ACUTAAS</h2><span class="modal-badge">STRONG · BULLISH</span></div><div class="modal-ltp"><small>LTP</small><strong>₹3,440.30</strong></div></div>
+<div class="detail-section"><h3>Market Intelligence</h3><div class="data-grid">
+<div><span>Status</span><b>STRONG · BULLISH</b></div><div><span>Expected Move</span><b>+3.5% → 3561.1 · 1–3 sessions</b></div><div><span>Candlestick Pattern</span><b>Not detected</b></div><div><span>Support</span><b>3341.2 / 3242.1 / 3181.7</b></div><div><span>Resistance</span><b>3500.7 / 3561.1 / 3660.2</b></div>
+</div></div>
+<div class="detail-section"><h3>Technical Data</h3><div class="data-grid">
+<div><span>Open</span><b>3,334.00</b></div><div><span>High</span><b>3,462.00</b></div><div><span>Low</span><b>3,302.50</b></div><div><span>Close</span><b>3,440.30</b></div>
+<div><span>Volume</span><b>521,496.00</b></div><div><span>20D Avg Volume</span><b>300,760.60</b></div><div><span>RSI</span><b>58.36</b></div><div><span>MACD</span><b>23.34</b></div><div><span>ADX</span><b>14.93</b></div><div><span>VWAP</span><b>3,398.49</b></div><div><span>ATR</span><b>134.49</b></div><div><span>Sector</span><b>healthcare</b></div>
+</div></div>
+<div class="detail-section"><h3>EMA MAP</h3><div class="ema-detail"><div><span>EMA 20</span><b>3,287.05</b></div><div><span>EMA 50</span><b>3,257.79</b></div><div><span>EMA 100</span><b>3,093.52</b></div><div><span>EMA 200</span><b>2,705.12</b></div></div></div>
+<div class="detail-section"><h3>Pivot Map</h3><div class="pivot-detail"><div class="p"><span>P</span><b>3,401.60</b></div><div class="r"><span>R1</span><b>3,500.70</b></div><div class="r"><span>R2</span><b>3,561.10</b></div><div class="r"><span>R3</span><b>3,660.20</b></div><div class="s"><span>S1</span><b>3,341.20</b></div><div class="s"><span>S2</span><b>3,242.10</b></div><div class="s"><span>S3</span><b>3,181.70</b></div></div></div>
+</div></div><div class="stock-modal-backdrop" id="stock-modal-ADANIPORTS" onclick="closeStock(event)">
+<div class="stock-modal">
+<button class="modal-close" onclick="hideStock()">×</button>
+<div class="modal-head"><div><div class="eyebrow">STWP STOCK DETAIL</div><h2>ADANIPORTS</h2><span class="modal-badge">DEVELOPING · BULLISH</span></div><div class="modal-ltp"><small>LTP</small><strong>₹1,824.00</strong></div></div>
+<div class="detail-section"><h3>Market Intelligence</h3><div class="data-grid">
+<div><span>Status</span><b>DEVELOPING · BULLISH</b></div><div><span>Expected Move</span><b>+2.9% → 1877.33 · 1–5 sessions</b></div><div><span>Candlestick Pattern</span><b>Bullish Marubozu</b></div><div><span>Support</span><b>1770.67 / 1717.33 / 1690.67</b></div><div><span>Resistance</span><b>1850.67 / 1877.33 / 1930.67</b></div>
+</div></div>
+<div class="detail-section"><h3>Technical Data</h3><div class="data-grid">
+<div><span>Open</span><b>1,748.00</b></div><div><span>High</span><b>1,824.00</b></div><div><span>Low</span><b>1,744.00</b></div><div><span>Close</span><b>1,824.00</b></div>
+<div><span>Volume</span><b>2,789,046.00</b></div><div><span>20D Avg Volume</span><b>2,486,629.15</b></div><div><span>RSI</span><b>64.05</b></div><div><span>MACD</span><b>11.82</b></div><div><span>ADX</span><b>18.16</b></div><div><span>VWAP</span><b>1,786.99</b></div><div><span>ATR</span><b>44.69</b></div><div><span>Sector</span><b>transportation</b></div>
+</div></div>
+<div class="detail-section"><h3>EMA MAP</h3><div class="ema-detail"><div><span>EMA 20</span><b>1,726.58</b></div><div><span>EMA 50</span><b>1,726.00</b></div><div><span>EMA 100</span><b>1,705.80</b></div><div><span>EMA 200</span><b>1,634.89</b></div></div></div>
+<div class="detail-section"><h3>Pivot Map</h3><div class="pivot-detail"><div class="p"><span>P</span><b>1,797.33</b></div><div class="r"><span>R1</span><b>1,850.67</b></div><div class="r"><span>R2</span><b>1,877.33</b></div><div class="r"><span>R3</span><b>1,930.67</b></div><div class="s"><span>S1</span><b>1,770.67</b></div><div class="s"><span>S2</span><b>1,717.33</b></div><div class="s"><span>S3</span><b>1,690.67</b></div></div></div>
+</div></div><div class="stock-modal-backdrop" id="stock-modal-AEGISLOG" onclick="closeStock(event)">
+<div class="stock-modal">
+<button class="modal-close" onclick="hideStock()">×</button>
+<div class="modal-head"><div><div class="eyebrow">STWP STOCK DETAIL</div><h2>AEGISLOG</h2><span class="modal-badge">STRONG · BULLISH</span></div><div class="modal-ltp"><small>LTP</small><strong>₹1,415.40</strong></div></div>
+<div class="detail-section"><h3>Market Intelligence</h3><div class="data-grid">
+<div><span>Status</span><b>STRONG · BULLISH</b></div><div><span>Expected Move</span><b>+4% → 1471.4 · 1–3 sessions</b></div><div><span>Candlestick Pattern</span><b>Not detected</b></div><div><span>Support</span><b>1373.7 / 1332 / 1304</b></div><div><span>Resistance</span><b>1443.4 / 1471.4 / 1513.1</b></div>
+</div></div>
+<div class="detail-section"><h3>Technical Data</h3><div class="data-grid">
+<div><span>Open</span><b>1,362.90</b></div><div><span>High</span><b>1,429.70</b></div><div><span>Low</span><b>1,360.00</b></div><div><span>Close</span><b>1,415.40</b></div>
+<div><span>Volume</span><b>1,333,662.00</b></div><div><span>20D Avg Volume</span><b>887,422.85</b></div><div><span>RSI</span><b>60.14</b></div><div><span>MACD</span><b>11.45</b></div><div><span>ADX</span><b>22.82</b></div><div><span>VWAP</span><b>1,402.93</b></div><div><span>ATR</span><b>65.49</b></div><div><span>Sector</span><b>services</b></div>
+</div></div>
+<div class="detail-section"><h3>EMA MAP</h3><div class="ema-detail"><div><span>EMA 20</span><b>1,324.44</b></div><div><span>EMA 50</span><b>1,270.71</b></div><div><span>EMA 100</span><b>1,146.44</b></div><div><span>EMA 200</span><b>999.02</b></div></div></div>
+<div class="detail-section"><h3>Pivot Map</h3><div class="pivot-detail"><div class="p"><span>P</span><b>1,401.70</b></div><div class="r"><span>R1</span><b>1,443.40</b></div><div class="r"><span>R2</span><b>1,471.40</b></div><div class="r"><span>R3</span><b>1,513.10</b></div><div class="s"><span>S1</span><b>1,373.70</b></div><div class="s"><span>S2</span><b>1,332.00</b></div><div class="s"><span>S3</span><b>1,304.00</b></div></div></div>
+</div></div><div class="stock-modal-backdrop" id="stock-modal-ALIVUS" onclick="closeStock(event)">
+<div class="stock-modal">
+<button class="modal-close" onclick="hideStock()">×</button>
+<div class="modal-head"><div><div class="eyebrow">STWP STOCK DETAIL</div><h2>ALIVUS</h2><span class="modal-badge">DEVELOPING · BULLISH</span></div><div class="modal-ltp"><small>LTP</small><strong>₹1,430.80</strong></div></div>
+<div class="detail-section"><h3>Market Intelligence</h3><div class="data-grid">
+<div><span>Status</span><b>DEVELOPING · BULLISH</b></div><div><span>Expected Move</span><b>+3.2% → 1476.27 · 1–3 sessions</b></div><div><span>Candlestick Pattern</span><b>Not detected</b></div><div><span>Support</span><b>1397.53 / 1364.27 / 1341.53</b></div><div><span>Resistance</span><b>1453.53 / 1476.27 / 1509.53</b></div>
+</div></div>
+<div class="detail-section"><h3>Technical Data</h3><div class="data-grid">
+<div><span>Open</span><b>1,395.10</b></div><div><span>High</span><b>1,443.00</b></div><div><span>Low</span><b>1,387.00</b></div><div><span>Close</span><b>1,430.80</b></div>
+<div><span>Volume</span><b>304,330.00</b></div><div><span>20D Avg Volume</span><b>195,152.35</b></div><div><span>RSI</span><b>61.56</b></div><div><span>MACD</span><b>-5.46</b></div><div><span>ADX</span><b>33.73</b></div><div><span>VWAP</span><b>1,423.36</b></div><div><span>ATR</span><b>52.56</b></div><div><span>Sector</span><b>healthcare</b></div>
+</div></div>
+<div class="detail-section"><h3>EMA MAP</h3><div class="ema-detail"><div><span>EMA 20</span><b>1,376.49</b></div><div><span>EMA 50</span><b>1,307.93</b></div><div><span>EMA 100</span><b>1,217.89</b></div><div><span>EMA 200</span><b>1,125.54</b></div></div></div>
+<div class="detail-section"><h3>Pivot Map</h3><div class="pivot-detail"><div class="p"><span>P</span><b>1,420.27</b></div><div class="r"><span>R1</span><b>1,453.53</b></div><div class="r"><span>R2</span><b>1,476.27</b></div><div class="r"><span>R3</span><b>1,509.53</b></div><div class="s"><span>S1</span><b>1,397.53</b></div><div class="s"><span>S2</span><b>1,364.27</b></div><div class="s"><span>S3</span><b>1,341.53</b></div></div></div>
+</div></div><div class="stock-modal-backdrop" id="stock-modal-APARINDS" onclick="closeStock(event)">
+<div class="stock-modal">
+<button class="modal-close" onclick="hideStock()">×</button>
+<div class="modal-head"><div><div class="eyebrow">STWP STOCK DETAIL</div><h2>APARINDS</h2><span class="modal-badge">STRONG · BULLISH</span></div><div class="modal-ltp"><small>LTP</small><strong>₹18,858.00</strong></div></div>
+<div class="detail-section"><h3>Market Intelligence</h3><div class="data-grid">
+<div><span>Status</span><b>STRONG · BULLISH</b></div><div><span>Expected Move</span><b>+5.5% → 19896 · 1–3 sessions</b></div><div><span>Candlestick Pattern</span><b>Not detected</b></div><div><span>Support</span><b>18042 / 17226 / 16707</b></div><div><span>Resistance</span><b>19377 / 19896 / 20712</b></div>
+</div></div>
+<div class="detail-section"><h3>Technical Data</h3><div class="data-grid">
+<div><span>Open</span><b>17,800.00</b></div><div><span>High</span><b>19,080.00</b></div><div><span>Low</span><b>17,745.00</b></div><div><span>Close</span><b>18,858.00</b></div>
+<div><span>Volume</span><b>271,798.00</b></div><div><span>20D Avg Volume</span><b>128,219.70</b></div><div><span>RSI</span><b>65.00</b></div><div><span>MACD</span><b>-5.93</b></div><div><span>ADX</span><b>33.97</b></div><div><span>VWAP</span><b>18,498.47</b></div><div><span>ATR</span><b>899.65</b></div><div><span>Sector</span><b>industrials</b></div>
+</div></div>
+<div class="detail-section"><h3>EMA MAP</h3><div class="ema-detail"><div><span>EMA 20</span><b>17,320.84</b></div><div><span>EMA 50</span><b>16,364.34</b></div><div><span>EMA 100</span><b>14,987.31</b></div><div><span>EMA 200</span><b>13,090.30</b></div></div></div>
+<div class="detail-section"><h3>Pivot Map</h3><div class="pivot-detail"><div class="p"><span>P</span><b>18,561.00</b></div><div class="r"><span>R1</span><b>19,377.00</b></div><div class="r"><span>R2</span><b>19,896.00</b></div><div class="r"><span>R3</span><b>20,712.00</b></div><div class="s"><span>S1</span><b>18,042.00</b></div><div class="s"><span>S2</span><b>17,226.00</b></div><div class="s"><span>S3</span><b>16,707.00</b></div></div></div>
+</div></div><div class="stock-modal-backdrop" id="stock-modal-APLAPOLLO" onclick="closeStock(event)">
+<div class="stock-modal">
+<button class="modal-close" onclick="hideStock()">×</button>
+<div class="modal-head"><div><div class="eyebrow">STWP STOCK DETAIL</div><h2>APLAPOLLO</h2><span class="modal-badge">DEVELOPING · BULLISH</span></div><div class="modal-ltp"><small>LTP</small><strong>₹2,270.10</strong></div></div>
+<div class="detail-section"><h3>Market Intelligence</h3><div class="data-grid">
+<div><span>Status</span><b>DEVELOPING · BULLISH</b></div><div><span>Expected Move</span><b>+3.6% → 2352.63 · 1–5 sessions</b></div><div><span>Candlestick Pattern</span><b>Bullish Marubozu</b></div><div><span>Support</span><b>2187.57 / 2105.03 / 2063.77</b></div><div><span>Resistance</span><b>2311.37 / 2352.63 / 2435.17</b></div>
+</div></div>
+<div class="detail-section"><h3>Technical Data</h3><div class="data-grid">
+<div><span>Open</span><b>2,154.90</b></div><div><span>High</span><b>2,270.10</b></div><div><span>Low</span><b>2,146.30</b></div><div><span>Close</span><b>2,270.10</b></div>
+<div><span>Volume</span><b>927,955.00</b></div><div><span>20D Avg Volume</span><b>702,571.15</b></div><div><span>RSI</span><b>64.59</b></div><div><span>MACD</span><b>-10.65</b></div><div><span>ADX</span><b>34.79</b></div><div><span>VWAP</span><b>2,207.25</b></div><div><span>ATR</span><b>71.07</b></div><div><span>Sector</span><b>industrials</b></div>
+</div></div>
+<div class="detail-section"><h3>EMA MAP</h3><div class="ema-detail"><div><span>EMA 20</span><b>2,158.24</b></div><div><span>EMA 50</span><b>2,068.56</b></div><div><span>EMA 100</span><b>2,002.53</b></div><div><span>EMA 200</span><b>1,939.84</b></div></div></div>
+<div class="detail-section"><h3>Pivot Map</h3><div class="pivot-detail"><div class="p"><span>P</span><b>2,228.83</b></div><div class="r"><span>R1</span><b>2,311.37</b></div><div class="r"><span>R2</span><b>2,352.63</b></div><div class="r"><span>R3</span><b>2,435.17</b></div><div class="s"><span>S1</span><b>2,187.57</b></div><div class="s"><span>S2</span><b>2,105.03</b></div><div class="s"><span>S3</span><b>2,063.77</b></div></div></div>
+</div></div><div class="stock-modal-backdrop" id="stock-modal-AUROPHARMA" onclick="closeStock(event)">
+<div class="stock-modal">
+<button class="modal-close" onclick="hideStock()">×</button>
+<div class="modal-head"><div><div class="eyebrow">STWP STOCK DETAIL</div><h2>AUROPHARMA</h2><span class="modal-badge">DEVELOPING · BULLISH</span></div><div class="modal-ltp"><small>LTP</small><strong>₹1,734.00</strong></div></div>
+<div class="detail-section"><h3>Market Intelligence</h3><div class="data-grid">
+<div><span>Status</span><b>DEVELOPING · BULLISH</b></div><div><span>Expected Move</span><b>+2.2% → 1772.6 · 3–7 sessions</b></div><div><span>Candlestick Pattern</span><b>Three Outside Up</b></div><div><span>Support</span><b>1695.4 / 1656.8 / 1637.5</b></div><div><span>Resistance</span><b>1753.3 / 1772.6 / 1811.2</b></div>
+</div></div>
+<div class="detail-section"><h3>Technical Data</h3><div class="data-grid">
+<div><span>Open</span><b>1,683.20</b></div><div><span>High</span><b>1,734.00</b></div><div><span>Low</span><b>1,676.10</b></div><div><span>Close</span><b>1,734.00</b></div>
+<div><span>Volume</span><b>1,024,077.00</b></div><div><span>20D Avg Volume</span><b>787,864.35</b></div><div><span>RSI</span><b>63.24</b></div><div><span>MACD</span><b>1.75</b></div><div><span>ADX</span><b>23.29</b></div><div><span>VWAP</span><b>1,697.49</b></div><div><span>ATR</span><b>43.25</b></div><div><span>Sector</span><b>healthcare</b></div>
+</div></div>
+<div class="detail-section"><h3>EMA MAP</h3><div class="ema-detail"><div><span>EMA 20</span><b>1,664.04</b></div><div><span>EMA 50</span><b>1,619.92</b></div><div><span>EMA 100</span><b>1,547.77</b></div><div><span>EMA 200</span><b>1,440.93</b></div></div></div>
+<div class="detail-section"><h3>Pivot Map</h3><div class="pivot-detail"><div class="p"><span>P</span><b>1,714.70</b></div><div class="r"><span>R1</span><b>1,753.30</b></div><div class="r"><span>R2</span><b>1,772.60</b></div><div class="r"><span>R3</span><b>1,811.20</b></div><div class="s"><span>S1</span><b>1,695.40</b></div><div class="s"><span>S2</span><b>1,656.80</b></div><div class="s"><span>S3</span><b>1,637.50</b></div></div></div>
+</div></div><div class="stock-modal-backdrop" id="stock-modal-AVALON" onclick="closeStock(event)">
+<div class="stock-modal">
+<button class="modal-close" onclick="hideStock()">×</button>
+<div class="modal-head"><div><div class="eyebrow">STWP STOCK DETAIL</div><h2>AVALON</h2><span class="modal-badge">STRONG · BULLISH</span></div><div class="modal-ltp"><small>LTP</small><strong>₹2,537.70</strong></div></div>
+<div class="detail-section"><h3>Market Intelligence</h3><div class="data-grid">
+<div><span>Status</span><b>STRONG · BULLISH</b></div><div><span>Expected Move</span><b>+12.6% → 2857.7 · 1–3 sessions</b></div><div><span>Candlestick Pattern</span><b>Not detected</b></div><div><span>Support</span><b>2298 / 2058.3 / 1898.3</b></div><div><span>Resistance</span><b>2697.7 / 2857.7 / 3097.4</b></div>
+</div></div>
+<div class="detail-section"><h3>Technical Data</h3><div class="data-grid">
+<div><span>Open</span><b>2,236.20</b></div><div><span>High</span><b>2,618.00</b></div><div><span>Low</span><b>2,218.30</b></div><div><span>Close</span><b>2,537.70</b></div>
+<div><span>Volume</span><b>4,310,981.00</b></div><div><span>20D Avg Volume</span><b>681,515.65</b></div><div><span>RSI</span><b>67.45</b></div><div><span>MACD</span><b>-2.79</b></div><div><span>ADX</span><b>34.28</b></div><div><span>VWAP</span><b>2,475.49</b></div><div><span>ATR</span><b>175.87</b></div><div><span>Sector</span><b>consumer discretionary</b></div>
+</div></div>
+<div class="detail-section"><h3>EMA MAP</h3><div class="ema-detail"><div><span>EMA 20</span><b>2,229.87</b></div><div><span>EMA 50</span><b>2,047.24</b></div><div><span>EMA 100</span><b>1,807.26</b></div><div><span>EMA 200</span><b>1,518.57</b></div></div></div>
+<div class="detail-section"><h3>Pivot Map</h3><div class="pivot-detail"><div class="p"><span>P</span><b>2,458.00</b></div><div class="r"><span>R1</span><b>2,697.70</b></div><div class="r"><span>R2</span><b>2,857.70</b></div><div class="r"><span>R3</span><b>3,097.40</b></div><div class="s"><span>S1</span><b>2,298.00</b></div><div class="s"><span>S2</span><b>2,058.30</b></div><div class="s"><span>S3</span><b>1,898.30</b></div></div></div>
+</div></div>
+<div class="stock-modal-backdrop" id="stock-modal-AZAD" onclick="closeStock(event)">
+<div class="stock-modal">
+<button class="modal-close" onclick="hideStock()">×</button>
+<div class="modal-head"><div><div class="eyebrow">STWP STOCK DETAIL</div><h2>AZAD</h2><span class="modal-badge">DEVELOPING · BULLISH</span></div><div class="modal-ltp"><small>LTP</small><strong>₹2,790.30</strong></div></div>
+<div class="detail-section"><h3>Market Intelligence</h3><div class="data-grid">
+<div><span>Status</span><b>DEVELOPING · BULLISH</b></div><div><span>Expected Move</span><b>+5.6% → 2947.9 · 1–3 sessions</b></div><div><span>Candlestick Pattern</span><b>Not detected</b></div><div><span>Support</span><b>2658.4 / 2526.5 / 2447.7</b></div><div><span>Resistance</span><b>2869.1 / 2947.9 / 3079.8</b></div>
+</div></div>
+<div class="detail-section"><h3>Technical Data</h3><div class="data-grid">
+<div><span>Open</span><b>2,605.30</b></div><div><span>High</span><b>2,816.00</b></div><div><span>Low</span><b>2,605.30</b></div><div><span>Close</span><b>2,790.30</b></div>
+<div><span>Volume</span><b>700,873.00</b></div><div><span>20D Avg Volume</span><b>413,214.10</b></div><div><span>RSI</span><b>54.65</b></div><div><span>MACD</span><b>-31.11</b></div><div><span>ADX</span><b>23.72</b></div><div><span>VWAP</span><b>2,746.07</b></div><div><span>ATR</span><b>134.18</b></div><div><span>Sector</span><b>aerospace &amp; defence</b></div>
+</div></div>
+<div class="detail-section"><h3>EMA MAP</h3><div class="ema-detail"><div><span>EMA 20</span><b>2,736.90</b></div><div><span>EMA 50</span><b>2,602.50</b></div><div><span>EMA 100</span><b>2,390.72</b></div><div><span>EMA 200</span><b>2,134.94</b></div></div></div>
+<div class="detail-section"><h3>Pivot Map</h3><div class="pivot-detail"><div class="p"><span>P</span><b>2,737.20</b></div><div class="r"><span>R1</span><b>2,869.10</b></div><div class="r"><span>R2</span><b>2,947.90</b></div><div class="r"><span>R3</span><b>3,079.80</b></div><div class="s"><span>S1</span><b>2,658.40</b></div><div class="s"><span>S2</span><b>2,526.50</b></div><div class="s"><span>S3</span><b>2,447.70</b></div></div></div>
+</div></div>
+<div class="stock-modal-backdrop" id="stock-modal-BBTC" onclick="closeStock(event)">
+<div class="stock-modal">
+<button class="modal-close" onclick="hideStock()">×</button>
+<div class="modal-head"><div><div class="eyebrow">STWP STOCK DETAIL</div><h2>BBTC</h2><span class="modal-badge">DEVELOPING · BULLISH</span></div><div class="modal-ltp"><small>LTP</small><strong>₹1,512.10</strong></div></div>
+<div class="detail-section"><h3>Market Intelligence</h3><div class="data-grid">
+<div><span>Status</span><b>DEVELOPING · BULLISH</b></div><div><span>Expected Move</span><b>+6.5% → 1609.83 · 1–3 sessions</b></div><div><span>Candlestick Pattern</span><b>Above The Stomach</b></div><div><span>Support</span><b>1436.47 / 1360.83 / 1311.97</b></div><div><span>Resistance</span><b>1560.97 / 1609.83 / 1685.47</b></div>
+</div></div>
+<div class="detail-section"><h3>Technical Data</h3><div class="data-grid">
+<div><span>Open</span><b>1,409.70</b></div><div><span>High</span><b>1,534.20</b></div><div><span>Low</span><b>1,409.70</b></div><div><span>Close</span><b>1,512.10</b></div>
+<div><span>Volume</span><b>2,468,226.00</b></div><div><span>20D Avg Volume</span><b>920,915.20</b></div><div><span>RSI</span><b>56.16</b></div><div><span>MACD</span><b>-2.12</b></div><div><span>ADX</span><b>19.15</b></div><div><span>VWAP</span><b>1,493.84</b></div><div><span>ATR</span><b>50.30</b></div><div><span>Sector</span><b>auto</b></div>
+</div></div>
+<div class="detail-section"><h3>EMA MAP</h3><div class="ema-detail"><div><span>EMA 20</span><b>1,463.80</b></div><div><span>EMA 50</span><b>1,482.16</b></div><div><span>EMA 100</span><b>1,514.10</b></div><div><span>EMA 200</span><b>1,594.86</b></div></div></div>
+<div class="detail-section"><h3>Pivot Map</h3><div class="pivot-detail"><div class="p"><span>P</span><b>1,485.33</b></div><div class="r"><span>R1</span><b>1,560.97</b></div><div class="r"><span>R2</span><b>1,609.83</b></div><div class="r"><span>R3</span><b>1,685.47</b></div><div class="s"><span>S1</span><b>1,436.47</b></div><div class="s"><span>S2</span><b>1,360.83</b></div><div class="s"><span>S3</span><b>1,311.97</b></div></div></div>
+</div></div><div class="stock-modal-backdrop" id="stock-modal-BEML" onclick="closeStock(event)">
+<div class="stock-modal">
+<button class="modal-close" onclick="hideStock()">×</button>
+<div class="modal-head"><div><div class="eyebrow">STWP STOCK DETAIL</div><h2>BEML</h2><span class="modal-badge">STRONG · BULLISH</span></div><div class="modal-ltp"><small>LTP</small><strong>₹2,135.00</strong></div></div>
+<div class="detail-section"><h3>Market Intelligence</h3><div class="data-grid">
+<div><span>Status</span><b>STRONG · BULLISH</b></div><div><span>Expected Move</span><b>+4.5% → 2231.4 · 1–3 sessions</b></div><div><span>Candlestick Pattern</span><b>Not detected</b></div><div><span>Support</span><b>2058.6 / 1982.2 / 1934</b></div><div><span>Resistance</span><b>2183.2 / 2231.4 / 2307.8</b></div>
+</div></div>
+<div class="detail-section"><h3>Technical Data</h3><div class="data-grid">
+<div><span>Open</span><b>2,030.40</b></div><div><span>High</span><b>2,155.00</b></div><div><span>Low</span><b>2,030.40</b></div><div><span>Close</span><b>2,135.00</b></div>
+<div><span>Volume</span><b>1,380,251.00</b></div><div><span>20D Avg Volume</span><b>503,552.80</b></div><div><span>RSI</span><b>64.50</b></div><div><span>MACD</span><b>-3.25</b></div><div><span>ADX</span><b>30.92</b></div><div><span>VWAP</span><b>2,097.34</b></div><div><span>ATR</span><b>93.46</b></div><div><span>Sector</span><b>aerospace &amp; defence</b></div>
+</div></div>
+<div class="detail-section"><h3>EMA MAP</h3><div class="ema-detail"><div><span>EMA 20</span><b>2,004.08</b></div><div><span>EMA 50</span><b>1,925.99</b></div><div><span>EMA 100</span><b>1,865.91</b></div><div><span>EMA 200</span><b>1,840.77</b></div></div></div>
+<div class="detail-section"><h3>Pivot Map</h3><div class="pivot-detail"><div class="p"><span>P</span><b>2,106.80</b></div><div class="r"><span>R1</span><b>2,183.20</b></div><div class="r"><span>R2</span><b>2,231.40</b></div><div class="r"><span>R3</span><b>2,307.80</b></div><div class="s"><span>S1</span><b>2,058.60</b></div><div class="s"><span>S2</span><b>1,982.20</b></div><div class="s"><span>S3</span><b>1,934.00</b></div></div></div>
+</div></div>
+
+
+<div class="stock-modal-backdrop" id="stock-modal-COROMANDEL" onclick="closeStock(event)">
+<div class="stock-modal">
+<button class="modal-close" onclick="hideStock()">×</button>
+<div class="modal-head"><div><div class="eyebrow">STWP STOCK DETAIL</div><h2>COROMANDEL</h2><span class="modal-badge">DEVELOPING · BULLISH</span></div><div class="modal-ltp"><small>LTP</small><strong>₹1,999.50</strong></div></div>
+<div class="detail-section"><h3>Market Intelligence</h3><div class="data-grid">
+<div><span>Status</span><b>DEVELOPING · BULLISH</b></div><div><span>Expected Move</span><b>+4% → 2080.03 · 1–3 sessions</b></div><div><span>Candlestick Pattern</span><b>Bullish Engulfing; Bullish Tweezer Bottom</b></div><div><span>Support</span><b>1939.37 / 1879.23 / 1838.97</b></div><div><span>Resistance</span><b>2039.77 / 2080.03 / 2140.17</b></div>
+</div></div>
+<div class="detail-section"><h3>Technical Data</h3><div class="data-grid">
+<div><span>Open</span><b>1,929.80</b></div><div><span>High</span><b>2,019.90</b></div><div><span>Low</span><b>1,919.50</b></div><div><span>Close</span><b>1,999.50</b></div>
+<div><span>Volume</span><b>302,340.00</b></div><div><span>20D Avg Volume</span><b>146,778.45</b></div><div><span>RSI</span><b>55.52</b></div><div><span>MACD</span><b>6.53</b></div><div><span>ADX</span><b>15.54</b></div><div><span>VWAP</span><b>1,985.72</b></div><div><span>ATR</span><b>46.20</b></div><div><span>Sector</span><b>chemicals</b></div>
+</div></div>
+<div class="detail-section"><h3>EMA MAP</h3><div class="ema-detail"><div><span>EMA 20</span><b>1,961.47</b></div><div><span>EMA 50</span><b>1,983.41</b></div><div><span>EMA 100</span><b>2,003.56</b></div><div><span>EMA 200</span><b>2,045.36</b></div></div></div>
+<div class="detail-section"><h3>Pivot Map</h3><div class="pivot-detail"><div class="p"><span>P</span><b>1,979.63</b></div><div class="r"><span>R1</span><b>2,039.77</b></div><div class="r"><span>R2</span><b>2,080.03</b></div><div class="r"><span>R3</span><b>2,140.17</b></div><div class="s"><span>S1</span><b>1,939.37</b></div><div class="s"><span>S2</span><b>1,879.23</b></div><div class="s"><span>S3</span><b>1,838.97</b></div></div></div>
+</div></div><div class="stock-modal-backdrop" id="stock-modal-GMMPFAUDLR" onclick="closeStock(event)">
+<div class="stock-modal">
+<button class="modal-close" onclick="hideStock()">×</button>
+<div class="modal-head"><div><div class="eyebrow">STWP STOCK DETAIL</div><h2>GMMPFAUDLR</h2><span class="modal-badge">STRONG · BULLISH</span></div><div class="modal-ltp"><small>LTP</small><strong>₹1,467.00</strong></div></div>
+<div class="detail-section"><h3>Market Intelligence</h3><div class="data-grid">
+<div><span>Status</span><b>STRONG · BULLISH</b></div><div><span>Expected Move</span><b>+5.1% → 1542.33 · 1–3 sessions</b></div><div><span>Candlestick Pattern</span><b>Three Outside Up; Bullish Marubozu</b></div><div><span>Support</span><b>1399.67 / 1332.33 / 1294.67</b></div><div><span>Resistance</span><b>1504.67 / 1542.33 / 1609.67</b></div>
+</div></div>
+<div class="detail-section"><h3>Technical Data</h3><div class="data-grid">
+<div><span>Open</span><b>1,370.00</b></div><div><span>High</span><b>1,475.00</b></div><div><span>Low</span><b>1,370.00</b></div><div><span>Close</span><b>1,467.00</b></div>
+<div><span>Volume</span><b>1,207,844.00</b></div><div><span>20D Avg Volume</span><b>502,631.75</b></div><div><span>RSI</span><b>88.39</b></div><div><span>MACD</span><b>21.50</b></div><div><span>ADX</span><b>64.67</b></div><div><span>VWAP</span><b>1,444.35</b></div><div><span>ATR</span><b>64.68</b></div><div><span>Sector</span><b>industrials</b></div>
+</div></div>
+<div class="detail-section"><h3>EMA MAP</h3><div class="ema-detail"><div><span>EMA 20</span><b>1,213.27</b></div><div><span>EMA 50</span><b>1,062.97</b></div><div><span>EMA 100</span><b>984.05</b></div><div><span>EMA 200</span><b>981.49</b></div></div></div>
+<div class="detail-section"><h3>Pivot Map</h3><div class="pivot-detail"><div class="p"><span>P</span><b>1,437.33</b></div><div class="r"><span>R1</span><b>1,504.67</b></div><div class="r"><span>R2</span><b>1,542.33</b></div><div class="r"><span>R3</span><b>1,609.67</b></div><div class="s"><span>S1</span><b>1,399.67</b></div><div class="s"><span>S2</span><b>1,332.33</b></div><div class="s"><span>S3</span><b>1,294.67</b></div></div></div>
+</div></div><div class="stock-modal-backdrop" id="stock-modal-HOMEFIRST" onclick="closeStock(event)">
+<div class="stock-modal">
+<button class="modal-close" onclick="hideStock()">×</button>
+<div class="modal-head"><div><div class="eyebrow">STWP STOCK DETAIL</div><h2>HOMEFIRST</h2><span class="modal-badge">STRONG · BULLISH</span></div><div class="modal-ltp"><small>LTP</small><strong>₹1,241.30</strong></div></div>
+<div class="detail-section"><h3>Market Intelligence</h3><div class="data-grid">
+<div><span>Status</span><b>STRONG · BULLISH</b></div><div><span>Expected Move</span><b>+7% → 1328.3 · 1–3 sessions</b></div><div><span>Candlestick Pattern</span><b>Not detected</b></div><div><span>Support</span><b>1178 / 1114.7 / 1071.2</b></div><div><span>Resistance</span><b>1284.8 / 1328.3 / 1391.6</b></div>
+</div></div>
+<div class="detail-section"><h3>Technical Data</h3><div class="data-grid">
+<div><span>Open</span><b>1,165.00</b></div><div><span>High</span><b>1,265.00</b></div><div><span>Low</span><b>1,158.20</b></div><div><span>Close</span><b>1,241.30</b></div>
+<div><span>Volume</span><b>873,253.00</b></div><div><span>20D Avg Volume</span><b>221,404.50</b></div><div><span>RSI</span><b>61.45</b></div><div><span>MACD</span><b>0.29</b></div><div><span>ADX</span><b>21.03</b></div><div><span>VWAP</span><b>1,222.49</b></div><div><span>ATR</span><b>44.18</b></div><div><span>Sector</span><b>financials</b></div>
+</div></div>
+<div class="detail-section"><h3>EMA MAP</h3><div class="ema-detail"><div><span>EMA 20</span><b>1,197.14</b></div><div><span>EMA 50</span><b>1,187.84</b></div><div><span>EMA 100</span><b>1,169.69</b></div><div><span>EMA 200</span><b>1,156.90</b></div></div></div>
+<div class="detail-section"><h3>Pivot Map</h3><div class="pivot-detail"><div class="p"><span>P</span><b>1,221.50</b></div><div class="r"><span>R1</span><b>1,284.80</b></div><div class="r"><span>R2</span><b>1,328.30</b></div><div class="r"><span>R3</span><b>1,391.60</b></div><div class="s"><span>S1</span><b>1,178.00</b></div><div class="s"><span>S2</span><b>1,114.70</b></div><div class="s"><span>S3</span><b>1,071.20</b></div></div></div>
+</div></div><div class="stock-modal-backdrop" id="stock-modal-IKS" onclick="closeStock(event)">
+<div class="stock-modal">
+<button class="modal-close" onclick="hideStock()">×</button>
+<div class="modal-head"><div><div class="eyebrow">STWP STOCK DETAIL</div><h2>IKS</h2><span class="modal-badge">DEVELOPING · BULLISH</span></div><div class="modal-ltp"><small>LTP</small><strong>₹1,779.90</strong></div></div>
+<div class="detail-section"><h3>Market Intelligence</h3><div class="data-grid">
+<div><span>Status</span><b>DEVELOPING · BULLISH</b></div><div><span>Expected Move</span><b>+3.4% → 1839.97 · 1–3 sessions</b></div><div><span>Candlestick Pattern</span><b>Bullish Engulfing</b></div><div><span>Support</span><b>1735.43 / 1690.97 / 1660.93</b></div><div><span>Resistance</span><b>1809.93 / 1839.97 / 1884.43</b></div>
+</div></div>
+<div class="detail-section"><h3>Technical Data</h3><div class="data-grid">
+<div><span>Open</span><b>1,721.00</b></div><div><span>High</span><b>1,795.50</b></div><div><span>Low</span><b>1,721.00</b></div><div><span>Close</span><b>1,779.90</b></div>
+<div><span>Volume</span><b>451,923.00</b></div><div><span>20D Avg Volume</span><b>149,755.70</b></div><div><span>RSI</span><b>51.12</b></div><div><span>MACD</span><b>1.02</b></div><div><span>ADX</span><b>10.80</b></div><div><span>VWAP</span><b>1,779.82</b></div><div><span>ATR</span><b>55.55</b></div><div><span>Sector</span><b>i.t</b></div>
+</div></div>
+<div class="detail-section"><h3>EMA MAP</h3><div class="ema-detail"><div><span>EMA 20</span><b>1,768.94</b></div><div><span>EMA 50</span><b>1,769.99</b></div><div><span>EMA 100</span><b>1,732.67</b></div><div><span>EMA 200</span><b>1,685.65</b></div></div></div>
+<div class="detail-section"><h3>Pivot Map</h3><div class="pivot-detail"><div class="p"><span>P</span><b>1,765.47</b></div><div class="r"><span>R1</span><b>1,809.93</b></div><div class="r"><span>R2</span><b>1,839.97</b></div><div class="r"><span>R3</span><b>1,884.43</b></div><div class="s"><span>S1</span><b>1,735.43</b></div><div class="s"><span>S2</span><b>1,690.97</b></div><div class="s"><span>S3</span><b>1,660.93</b></div></div></div>
+</div></div><div class="stock-modal-backdrop" id="stock-modal-INDOMIM" onclick="closeStock(event)">
+<div class="stock-modal">
+<button class="modal-close" onclick="hideStock()">×</button>
+<div class="modal-head"><div><div class="eyebrow">STWP STOCK DETAIL</div><h2>INDOMIM</h2><span class="modal-badge">STRONG · BULLISH</span></div><div class="modal-ltp"><small>LTP</small><strong>₹1,055.90</strong></div></div>
+<div class="detail-section"><h3>Market Intelligence</h3><div class="data-grid">
+<div><span>Status</span><b>STRONG · BULLISH</b></div><div><span>Expected Move</span><b>+5.2% → 1110.3 · 1–3 sessions</b></div><div><span>Candlestick Pattern</span><b>Not detected</b></div><div><span>Support</span><b>1009.6 / 963.3 / 936.1</b></div><div><span>Resistance</span><b>1083.1 / 1110.3 / 1156.6</b></div>
+</div></div>
+<div class="detail-section"><h3>Technical Data</h3><div class="data-grid">
+<div><span>Open</span><b>999.00</b></div><div><span>High</span><b>1,064.00</b></div><div><span>Low</span><b>990.50</b></div><div><span>Close</span><b>1,055.90</b></div>
+<div><span>Volume</span><b>3,925,761.00</b></div><div><span>20D Avg Volume</span><b>2,231,062.65</b></div><div><span>RSI</span><b>69.16</b></div><div><span>MACD</span><b>4.90</b></div><div><span>ADX</span><b>35.72</b></div><div><span>VWAP</span><b>1,036.68</b></div><div><span>ATR</span><b>53.30</b></div><div><span>Sector</span><b>industrials</b></div>
+</div></div>
+<div class="detail-section"><h3>EMA MAP</h3><div class="ema-detail"><div><span>EMA 20</span><b>946.67</b></div><div><span>EMA 50</span><b>878.19</b></div><div><span>EMA 100</span><b>826.85</b></div><div><span>EMA 200</span><b>789.83</b></div></div></div>
+<div class="detail-section"><h3>Pivot Map</h3><div class="pivot-detail"><div class="p"><span>P</span><b>1,036.80</b></div><div class="r"><span>R1</span><b>1,083.10</b></div><div class="r"><span>R2</span><b>1,110.30</b></div><div class="r"><span>R3</span><b>1,156.60</b></div><div class="s"><span>S1</span><b>1,009.60</b></div><div class="s"><span>S2</span><b>963.30</b></div><div class="s"><span>S3</span><b>936.10</b></div></div></div>
+</div></div><div class="stock-modal-backdrop" id="stock-modal-JYOTICNC" onclick="closeStock(event)">
+<div class="stock-modal">
+<button class="modal-close" onclick="hideStock()">×</button>
+<div class="modal-head"><div><div class="eyebrow">STWP STOCK DETAIL</div><h2>JYOTICNC</h2><span class="modal-badge">STRONG · BULLISH</span></div><div class="modal-ltp"><small>LTP</small><strong>₹1,049.70</strong></div></div>
+<div class="detail-section"><h3>Market Intelligence</h3><div class="data-grid">
+<div><span>Status</span><b>STRONG · BULLISH</b></div><div><span>Expected Move</span><b>+6.4% → 1117.23 · 1–3 sessions</b></div><div><span>Candlestick Pattern</span><b>Not detected</b></div><div><span>Support</span><b>997.47 / 945.23 / 911.47</b></div><div><span>Resistance</span><b>1083.47 / 1117.23 / 1169.47</b></div>
+</div></div>
+<div class="detail-section"><h3>Technical Data</h3><div class="data-grid">
+<div><span>Open</span><b>980.85</b></div><div><span>High</span><b>1,065.00</b></div><div><span>Low</span><b>979.00</b></div><div><span>Close</span><b>1,049.70</b></div>
+<div><span>Volume</span><b>3,979,254.00</b></div><div><span>20D Avg Volume</span><b>1,160,273.10</b></div><div><span>RSI</span><b>64.01</b></div><div><span>MACD</span><b>-6.64</b></div><div><span>ADX</span><b>30.06</b></div><div><span>VWAP</span><b>1,041.02</b></div><div><span>ATR</span><b>47.32</b></div><div><span>Sector</span><b>industrials</b></div>
+</div></div>
+<div class="detail-section"><h3>EMA MAP</h3><div class="ema-detail"><div><span>EMA 20</span><b>980.41</b></div><div><span>EMA 50</span><b>912.81</b></div><div><span>EMA 100</span><b>859.31</b></div><div><span>EMA 200</span><b>854.60</b></div></div></div>
+<div class="detail-section"><h3>Pivot Map</h3><div class="pivot-detail"><div class="p"><span>P</span><b>1,031.23</b></div><div class="r"><span>R1</span><b>1,083.47</b></div><div class="r"><span>R2</span><b>1,117.23</b></div><div class="r"><span>R3</span><b>1,169.47</b></div><div class="s"><span>S1</span><b>997.47</b></div><div class="s"><span>S2</span><b>945.23</b></div><div class="s"><span>S3</span><b>911.47</b></div></div></div>
+</div></div><div class="stock-modal-backdrop" id="stock-modal-KPIL" onclick="closeStock(event)">
+<div class="stock-modal">
+<button class="modal-close" onclick="hideStock()">×</button>
+<div class="modal-head"><div><div class="eyebrow">STWP STOCK DETAIL</div><h2>KPIL</h2><span class="modal-badge">STRONG · BULLISH</span></div><div class="modal-ltp"><small>LTP</small><strong>₹1,445.50</strong></div></div>
+<div class="detail-section"><h3>Market Intelligence</h3><div class="data-grid">
+<div><span>Status</span><b>STRONG · BULLISH</b></div><div><span>Expected Move</span><b>+3.1% → 1489.83 · 1–3 sessions</b></div><div><span>Candlestick Pattern</span><b>Not detected</b></div><div><span>Support</span><b>1412.67 / 1379.83 / 1357.67</b></div><div><span>Resistance</span><b>1467.67 / 1489.83 / 1522.67</b></div>
+</div></div>
+<div class="detail-section"><h3>Technical Data</h3><div class="data-grid">
+<div><span>Open</span><b>1,404.90</b></div><div><span>High</span><b>1,457.00</b></div><div><span>Low</span><b>1,402.00</b></div><div><span>Close</span><b>1,445.50</b></div>
+<div><span>Volume</span><b>224,766.00</b></div><div><span>20D Avg Volume</span><b>153,043.20</b></div><div><span>RSI</span><b>61.12</b></div><div><span>MACD</span><b>-1.51</b></div><div><span>ADX</span><b>37.34</b></div><div><span>VWAP</span><b>1,436.52</b></div><div><span>ATR</span><b>42.44</b></div><div><span>Sector</span><b>realty</b></div>
+</div></div>
+<div class="detail-section"><h3>EMA MAP</h3><div class="ema-detail"><div><span>EMA 20</span><b>1,400.97</b></div><div><span>EMA 50</span><b>1,370.45</b></div><div><span>EMA 100</span><b>1,329.30</b></div><div><span>EMA 200</span><b>1,277.30</b></div></div></div>
+<div class="detail-section"><h3>Pivot Map</h3><div class="pivot-detail"><div class="p"><span>P</span><b>1,434.83</b></div><div class="r"><span>R1</span><b>1,467.67</b></div><div class="r"><span>R2</span><b>1,489.83</b></div><div class="r"><span>R3</span><b>1,522.67</b></div><div class="s"><span>S1</span><b>1,412.67</b></div><div class="s"><span>S2</span><b>1,379.83</b></div><div class="s"><span>S3</span><b>1,357.67</b></div></div></div>
+</div></div><div class="stock-modal-backdrop" id="stock-modal-LGEINDIA" onclick="closeStock(event)">
+<div class="stock-modal">
+<button class="modal-close" onclick="hideStock()">×</button>
+<div class="modal-head"><div><div class="eyebrow">STWP STOCK DETAIL</div><h2>LGEINDIA</h2><span class="modal-badge">DEVELOPING · BULLISH</span></div><div class="modal-ltp"><small>LTP</small><strong>₹1,696.90</strong></div></div>
+<div class="detail-section"><h3>Market Intelligence</h3><div class="data-grid">
+<div><span>Status</span><b>DEVELOPING · BULLISH</b></div><div><span>Expected Move</span><b>+2.3% → 1735.57 · 1–3 sessions</b></div><div><span>Candlestick Pattern</span><b>Three Outside Up</b></div><div><span>Support</span><b>1668.23 / 1639.57 / 1620.23</b></div><div><span>Resistance</span><b>1716.23 / 1735.57 / 1764.23</b></div>
+</div></div>
+<div class="detail-section"><h3>Technical Data</h3><div class="data-grid">
+<div><span>Open</span><b>1,660.00</b></div><div><span>High</span><b>1,706.90</b></div><div><span>Low</span><b>1,658.90</b></div><div><span>Close</span><b>1,696.90</b></div>
+<div><span>Volume</span><b>1,337,344.00</b></div><div><span>20D Avg Volume</span><b>534,525.55</b></div><div><span>RSI</span><b>60.78</b></div><div><span>MACD</span><b>-2.85</b></div><div><span>ADX</span><b>25.12</b></div><div><span>VWAP</span><b>1,692.37</b></div><div><span>ATR</span><b>42.33</b></div><div><span>Sector</span><b>consumer discretionary</b></div>
+</div></div>
+<div class="detail-section"><h3>EMA MAP</h3><div class="ema-detail"><div><span>EMA 20</span><b>1,649.46</b></div><div><span>EMA 50</span><b>1,620.15</b></div><div><span>EMA 100</span><b>1,592.53</b></div><div><span>EMA 200</span><b>1,584.00</b></div></div></div>
+<div class="detail-section"><h3>Pivot Map</h3><div class="pivot-detail"><div class="p"><span>P</span><b>1,687.57</b></div><div class="r"><span>R1</span><b>1,716.23</b></div><div class="r"><span>R2</span><b>1,735.57</b></div><div class="r"><span>R3</span><b>1,764.23</b></div><div class="s"><span>S1</span><b>1,668.23</b></div><div class="s"><span>S2</span><b>1,639.57</b></div><div class="s"><span>S3</span><b>1,620.23</b></div></div></div>
+</div></div><div class="stock-modal-backdrop" id="stock-modal-MACPOWER" onclick="closeStock(event)">
+<div class="stock-modal">
+<button class="modal-close" onclick="hideStock()">×</button>
+<div class="modal-head"><div><div class="eyebrow">STWP STOCK DETAIL</div><h2>MACPOWER</h2><span class="modal-badge">STRONG · BULLISH</span></div><div class="modal-ltp"><small>LTP</small><strong>₹2,104.50</strong></div></div>
+<div class="detail-section"><h3>Market Intelligence</h3><div class="data-grid">
+<div><span>Status</span><b>STRONG · BULLISH</b></div><div><span>Expected Move</span><b>+8.3% → 2280.1 · 1–3 sessions</b></div><div><span>Candlestick Pattern</span><b>Not detected</b></div><div><span>Support</span><b>1973.4 / 1842.3 / 1754.5</b></div><div><span>Resistance</span><b>2192.3 / 2280.1 / 2411.2</b></div>
+</div></div>
+<div class="detail-section"><h3>Technical Data</h3><div class="data-grid">
+<div><span>Open</span><b>1,930.10</b></div><div><span>High</span><b>2,149.00</b></div><div><span>Low</span><b>1,930.10</b></div><div><span>Close</span><b>2,104.50</b></div>
+<div><span>Volume</span><b>237,776.00</b></div><div><span>20D Avg Volume</span><b>59,341.00</b></div><div><span>RSI</span><b>68.72</b></div><div><span>MACD</span><b>-4.13</b></div><div><span>ADX</span><b>37.10</b></div><div><span>VWAP</span><b>2,086.98</b></div><div><span>ATR</span><b>139.96</b></div><div><span>Sector</span><b>industrials</b></div>
+</div></div>
+<div class="detail-section"><h3>EMA MAP</h3><div class="ema-detail"><div><span>EMA 20</span><b>1,882.70</b></div><div><span>EMA 50</span><b>1,711.02</b></div><div><span>EMA 100</span><b>1,501.00</b></div><div><span>EMA 200</span><b>1,297.04</b></div></div></div>
+<div class="detail-section"><h3>Pivot Map</h3><div class="pivot-detail"><div class="p"><span>P</span><b>2,061.20</b></div><div class="r"><span>R1</span><b>2,192.30</b></div><div class="r"><span>R2</span><b>2,280.10</b></div><div class="r"><span>R3</span><b>2,411.20</b></div><div class="s"><span>S1</span><b>1,973.40</b></div><div class="s"><span>S2</span><b>1,842.30</b></div><div class="s"><span>S3</span><b>1,754.50</b></div></div></div>
+</div></div>
+<div class="stock-modal-backdrop" id="stock-modal-NAVINFLUOR" onclick="closeStock(event)">
+<div class="stock-modal">
+<button class="modal-close" onclick="hideStock()">×</button>
+<div class="modal-head"><div><div class="eyebrow">STWP STOCK DETAIL</div><h2>NAVINFLUOR</h2><span class="modal-badge">DEVELOPING · BULLISH</span></div><div class="modal-ltp"><small>LTP</small><strong>₹8,590.00</strong></div></div>
+<div class="detail-section"><h3>Market Intelligence</h3><div class="data-grid">
+<div><span>Status</span><b>DEVELOPING · BULLISH</b></div><div><span>Expected Move</span><b>+4.2% → 8952.33 · 1–3 sessions</b></div><div><span>Candlestick Pattern</span><b>Three Outside Up</b></div><div><span>Support</span><b>8320.17 / 8050.33 / 7869.17</b></div><div><span>Resistance</span><b>8771.17 / 8952.33 / 9222.17</b></div>
+</div></div>
+<div class="detail-section"><h3>Technical Data</h3><div class="data-grid">
+<div><span>Open</span><b>8,257.00</b></div><div><span>High</span><b>8,682.50</b></div><div><span>Low</span><b>8,231.50</b></div><div><span>Close</span><b>8,590.00</b></div>
+<div><span>Volume</span><b>298,599.00</b></div><div><span>20D Avg Volume</span><b>138,797.60</b></div><div><span>RSI</span><b>56.27</b></div><div><span>MACD</span><b>-56.03</b></div><div><span>ADX</span><b>25.55</b></div><div><span>VWAP</span><b>8,484.79</b></div><div><span>ATR</span><b>259.97</b></div><div><span>Sector</span><b>chemicals</b></div>
+</div></div>
+<div class="detail-section"><h3>EMA MAP</h3><div class="ema-detail"><div><span>EMA 20</span><b>8,428.68</b></div><div><span>EMA 50</span><b>8,150.42</b></div><div><span>EMA 100</span><b>7,704.76</b></div><div><span>EMA 200</span><b>7,018.25</b></div></div></div>
+<div class="detail-section"><h3>Pivot Map</h3><div class="pivot-detail"><div class="p"><span>P</span><b>8,501.33</b></div><div class="r"><span>R1</span><b>8,771.17</b></div><div class="r"><span>R2</span><b>8,952.33</b></div><div class="r"><span>R3</span><b>9,222.17</b></div><div class="s"><span>S1</span><b>8,320.17</b></div><div class="s"><span>S2</span><b>8,050.33</b></div><div class="s"><span>S3</span><b>7,869.17</b></div></div></div>
+</div></div><div class="stock-modal-backdrop" id="stock-modal-NELCO" onclick="closeStock(event)">
+<div class="stock-modal">
+<button class="modal-close" onclick="hideStock()">×</button>
+<div class="modal-head"><div><div class="eyebrow">STWP STOCK DETAIL</div><h2>NELCO</h2><span class="modal-badge">STRONG · BULLISH</span></div><div class="modal-ltp"><small>LTP</small><strong>₹1,011.85</strong></div></div>
+<div class="detail-section"><h3>Market Intelligence</h3><div class="data-grid">
+<div><span>Status</span><b>STRONG · BULLISH</b></div><div><span>Expected Move</span><b>+4.1% → 1053.08 · 1–3 sessions</b></div><div><span>Candlestick Pattern</span><b>Not detected</b></div><div><span>Support</span><b>978.27 / 944.68 / 924.07</b></div><div><span>Resistance</span><b>1032.47 / 1053.08 / 1086.67</b></div>
+</div></div>
+<div class="detail-section"><h3>Technical Data</h3><div class="data-grid">
+<div><span>Open</span><b>969.55</b></div><div><span>High</span><b>1,019.50</b></div><div><span>Low</span><b>965.30</b></div><div><span>Close</span><b>1,011.85</b></div>
+<div><span>Volume</span><b>682,119.00</b></div><div><span>20D Avg Volume</span><b>321,322.75</b></div><div><span>RSI</span><b>60.58</b></div><div><span>MACD</span><b>4.73</b></div><div><span>ADX</span><b>17.67</b></div><div><span>VWAP</span><b>1,005.89</b></div><div><span>ATR</span><b>45.80</b></div><div><span>Sector</span><b>telecom</b></div>
+</div></div>
+<div class="detail-section"><h3>EMA MAP</h3><div class="ema-detail"><div><span>EMA 20</span><b>951.70</b></div><div><span>EMA 50</span><b>928.39</b></div><div><span>EMA 100</span><b>873.45</b></div><div><span>EMA 200</span><b>829.99</b></div></div></div>
+<div class="detail-section"><h3>Pivot Map</h3><div class="pivot-detail"><div class="p"><span>P</span><b>998.88</b></div><div class="r"><span>R1</span><b>1,032.47</b></div><div class="r"><span>R2</span><b>1,053.08</b></div><div class="r"><span>R3</span><b>1,086.67</b></div><div class="s"><span>S1</span><b>978.27</b></div><div class="s"><span>S2</span><b>944.68</b></div><div class="s"><span>S3</span><b>924.07</b></div></div></div>
+</div></div><div class="stock-modal-backdrop" id="stock-modal-PVRINOX" onclick="closeStock(event)">
+<div class="stock-modal">
+<button class="modal-close" onclick="hideStock()">×</button>
+<div class="modal-head"><div><div class="eyebrow">STWP STOCK DETAIL</div><h2>PVRINOX</h2><span class="modal-badge">DEVELOPING · BULLISH</span></div><div class="modal-ltp"><small>LTP</small><strong>₹1,324.70</strong></div></div>
+<div class="detail-section"><h3>Market Intelligence</h3><div class="data-grid">
+<div><span>Status</span><b>DEVELOPING · BULLISH</b></div><div><span>Expected Move</span><b>+4.3% → 1381.3 · 1–5 sessions</b></div><div><span>Candlestick Pattern</span><b>Not detected</b></div><div><span>Support</span><b>1283.2 / 1241.7 / 1213.4</b></div><div><span>Resistance</span><b>1353 / 1381.3 / 1422.8</b></div>
+</div></div>
+<div class="detail-section"><h3>Technical Data</h3><div class="data-grid">
+<div><span>Open</span><b>1,277.50</b></div><div><span>High</span><b>1,339.80</b></div><div><span>Low</span><b>1,270.00</b></div><div><span>Close</span><b>1,324.70</b></div>
+<div><span>Volume</span><b>1,050,636.00</b></div><div><span>20D Avg Volume</span><b>803,652.05</b></div><div><span>RSI</span><b>65.09</b></div><div><span>MACD</span><b>4.32</b></div><div><span>ADX</span><b>36.86</b></div><div><span>VWAP</span><b>1,311.64</b></div><div><span>ATR</span><b>53.05</b></div><div><span>Sector</span><b>media</b></div>
+</div></div>
+<div class="detail-section"><h3>EMA MAP</h3><div class="ema-detail"><div><span>EMA 20</span><b>1,226.45</b></div><div><span>EMA 50</span><b>1,167.25</b></div><div><span>EMA 100</span><b>1,110.74</b></div><div><span>EMA 200</span><b>1,079.37</b></div></div></div>
+<div class="detail-section"><h3>Pivot Map</h3><div class="pivot-detail"><div class="p"><span>P</span><b>1,311.50</b></div><div class="r"><span>R1</span><b>1,353.00</b></div><div class="r"><span>R2</span><b>1,381.30</b></div><div class="r"><span>R3</span><b>1,422.80</b></div><div class="s"><span>S1</span><b>1,283.20</b></div><div class="s"><span>S2</span><b>1,241.70</b></div><div class="s"><span>S3</span><b>1,213.40</b></div></div></div>
+</div></div>
+<div class="stock-modal-backdrop" id="stock-modal-SANSERA" onclick="closeStock(event)">
+<div class="stock-modal">
+<button class="modal-close" onclick="hideStock()">×</button>
+<div class="modal-head"><div><div class="eyebrow">STWP STOCK DETAIL</div><h2>SANSERA</h2><span class="modal-badge">STRONG · BULLISH</span></div><div class="modal-ltp"><small>LTP</small><strong>₹4,259.90</strong></div></div>
+<div class="detail-section"><h3>Market Intelligence</h3><div class="data-grid">
+<div><span>Status</span><b>STRONG · BULLISH</b></div><div><span>Expected Move</span><b>+5% → 4474.97 · 1–3 sessions</b></div><div><span>Candlestick Pattern</span><b>Not detected</b></div><div><span>Support</span><b>4084.93 / 3909.97 / 3802.43</b></div><div><span>Resistance</span><b>4367.43 / 4474.97 / 4649.93</b></div>
+</div></div>
+<div class="detail-section"><h3>Technical Data</h3><div class="data-grid">
+<div><span>Open</span><b>4,042.00</b></div><div><span>High</span><b>4,300.00</b></div><div><span>Low</span><b>4,017.50</b></div><div><span>Close</span><b>4,259.90</b></div>
+<div><span>Volume</span><b>287,946.00</b></div><div><span>20D Avg Volume</span><b>182,437.75</b></div><div><span>RSI</span><b>65.45</b></div><div><span>MACD</span><b>3.85</b></div><div><span>ADX</span><b>31.78</b></div><div><span>VWAP</span><b>4,213.82</b></div><div><span>ATR</span><b>179.18</b></div><div><span>Sector</span><b>auto</b></div>
+</div></div>
+<div class="detail-section"><h3>EMA MAP</h3><div class="ema-detail"><div><span>EMA 20</span><b>3,950.57</b></div><div><span>EMA 50</span><b>3,698.33</b></div><div><span>EMA 100</span><b>3,325.91</b></div><div><span>EMA 200</span><b>2,814.30</b></div></div></div>
+<div class="detail-section"><h3>Pivot Map</h3><div class="pivot-detail"><div class="p"><span>P</span><b>4,192.47</b></div><div class="r"><span>R1</span><b>4,367.43</b></div><div class="r"><span>R2</span><b>4,474.97</b></div><div class="r"><span>R3</span><b>4,649.93</b></div><div class="s"><span>S1</span><b>4,084.93</b></div><div class="s"><span>S2</span><b>3,909.97</b></div><div class="s"><span>S3</span><b>3,802.43</b></div></div></div>
+</div></div><div class="stock-modal-backdrop" id="stock-modal-SHILPAMED" onclick="closeStock(event)">
+<div class="stock-modal">
+<button class="modal-close" onclick="hideStock()">×</button>
+<div class="modal-head"><div><div class="eyebrow">STWP STOCK DETAIL</div><h2>SHILPAMED</h2><span class="modal-badge">DEVELOPING · BULLISH</span></div><div class="modal-ltp"><small>LTP</small><strong>₹1,021.10</strong></div></div>
+<div class="detail-section"><h3>Market Intelligence</h3><div class="data-grid">
+<div><span>Status</span><b>DEVELOPING · BULLISH</b></div><div><span>Expected Move</span><b>+6.1% → 1083.23 · 1–5 sessions</b></div><div><span>Candlestick Pattern</span><b>Not detected</b></div><div><span>Support</span><b>970.97 / 920.83 / 889.77</b></div><div><span>Resistance</span><b>1052.17 / 1083.23 / 1133.37</b></div>
+</div></div>
+<div class="detail-section"><h3>Technical Data</h3><div class="data-grid">
+<div><span>Open</span><b>958.35</b></div><div><span>High</span><b>1,033.10</b></div><div><span>Low</span><b>951.90</b></div><div><span>Close</span><b>1,021.10</b></div>
+<div><span>Volume</span><b>1,766,385.00</b></div><div><span>20D Avg Volume</span><b>1,338,924.05</b></div><div><span>RSI</span><b>70.33</b></div><div><span>MACD</span><b>-3.55</b></div><div><span>ADX</span><b>50.54</b></div><div><span>VWAP</span><b>1,002.04</b></div><div><span>ATR</span><b>52.18</b></div><div><span>Sector</span><b>healthcare</b></div>
+</div></div>
+<div class="detail-section"><h3>EMA MAP</h3><div class="ema-detail"><div><span>EMA 20</span><b>915.65</b></div><div><span>EMA 50</span><b>809.06</b></div><div><span>EMA 100</span><b>690.56</b></div><div><span>EMA 200</span><b>572.49</b></div></div></div>
+<div class="detail-section"><h3>Pivot Map</h3><div class="pivot-detail"><div class="p"><span>P</span><b>1,002.03</b></div><div class="r"><span>R1</span><b>1,052.17</b></div><div class="r"><span>R2</span><b>1,083.23</b></div><div class="r"><span>R3</span><b>1,133.37</b></div><div class="s"><span>S1</span><b>970.97</b></div><div class="s"><span>S2</span><b>920.83</b></div><div class="s"><span>S3</span><b>889.77</b></div></div></div>
+</div></div><div class="stock-modal-backdrop" id="stock-modal-SHYAMMETL" onclick="closeStock(event)">
+<div class="stock-modal">
+<button class="modal-close" onclick="hideStock()">×</button>
+<div class="modal-head"><div><div class="eyebrow">STWP STOCK DETAIL</div><h2>SHYAMMETL</h2><span class="modal-badge">DEVELOPING · BULLISH</span></div><div class="modal-ltp"><small>LTP</small><strong>₹1,106.60</strong></div></div>
+<div class="detail-section"><h3>Market Intelligence</h3><div class="data-grid">
+<div><span>Status</span><b>DEVELOPING · BULLISH</b></div><div><span>Expected Move</span><b>+2% → 1128.2 · 1–3 sessions</b></div><div><span>Candlestick Pattern</span><b>Not detected</b></div><div><span>Support</span><b>1087.4 / 1068.2 / 1057.4</b></div><div><span>Resistance</span><b>1117.4 / 1128.2 / 1147.4</b></div>
+</div></div>
+<div class="detail-section"><h3>Technical Data</h3><div class="data-grid">
+<div><span>Open</span><b>1,087.00</b></div><div><span>High</span><b>1,109.00</b></div><div><span>Low</span><b>1,079.00</b></div><div><span>Close</span><b>1,106.60</b></div>
+<div><span>Volume</span><b>1,196,160.00</b></div><div><span>20D Avg Volume</span><b>525,742.35</b></div><div><span>RSI</span><b>64.23</b></div><div><span>MACD</span><b>0.05</b></div><div><span>ADX</span><b>21.99</b></div><div><span>VWAP</span><b>1,098.79</b></div><div><span>ATR</span><b>33.27</b></div><div><span>Sector</span><b>metals &amp; mining</b></div>
+</div></div>
+<div class="detail-section"><h3>EMA MAP</h3><div class="ema-detail"><div><span>EMA 20</span><b>1,061.39</b></div><div><span>EMA 50</span><b>1,031.23</b></div><div><span>EMA 100</span><b>990.54</b></div><div><span>EMA 200</span><b>942.98</b></div></div></div>
+<div class="detail-section"><h3>Pivot Map</h3><div class="pivot-detail"><div class="p"><span>P</span><b>1,098.20</b></div><div class="r"><span>R1</span><b>1,117.40</b></div><div class="r"><span>R2</span><b>1,128.20</b></div><div class="r"><span>R3</span><b>1,147.40</b></div><div class="s"><span>S1</span><b>1,087.40</b></div><div class="s"><span>S2</span><b>1,068.20</b></div><div class="s"><span>S3</span><b>1,057.40</b></div></div></div>
+</div></div><div class="stock-modal-backdrop" id="stock-modal-SJS" onclick="closeStock(event)">
+<div class="stock-modal">
+<button class="modal-close" onclick="hideStock()">×</button>
+<div class="modal-head"><div><div class="eyebrow">STWP STOCK DETAIL</div><h2>SJS</h2><span class="modal-badge">DEVELOPING · BULLISH</span></div><div class="modal-ltp"><small>LTP</small><strong>₹2,422.80</strong></div></div>
+<div class="detail-section"><h3>Market Intelligence</h3><div class="data-grid">
+<div><span>Status</span><b>DEVELOPING · BULLISH</b></div><div><span>Expected Move</span><b>+6% → 2567.47 · 1–3 sessions</b></div><div><span>Candlestick Pattern</span><b>Above The Stomach</b></div><div><span>Support</span><b>2315.33 / 2207.87 / 2135.53</b></div><div><span>Resistance</span><b>2495.13 / 2567.47 / 2674.93</b></div>
+</div></div>
+<div class="detail-section"><h3>Technical Data</h3><div class="data-grid">
+<div><span>Open</span><b>2,297.20</b></div><div><span>High</span><b>2,460.00</b></div><div><span>Low</span><b>2,280.20</b></div><div><span>Close</span><b>2,422.80</b></div>
+<div><span>Volume</span><b>992,502.00</b></div><div><span>20D Avg Volume</span><b>169,087.00</b></div><div><span>RSI</span><b>54.13</b></div><div><span>MACD</span><b>-9.24</b></div><div><span>ADX</span><b>25.99</b></div><div><span>VWAP</span><b>2,413.65</b></div><div><span>ATR</span><b>91.95</b></div><div><span>Sector</span><b>auto</b></div>
+</div></div>
+<div class="detail-section"><h3>EMA MAP</h3><div class="ema-detail"><div><span>EMA 20</span><b>2,373.42</b></div><div><span>EMA 50</span><b>2,344.07</b></div><div><span>EMA 100</span><b>2,217.39</b></div><div><span>EMA 200</span><b>2,001.99</b></div></div></div>
+<div class="detail-section"><h3>Pivot Map</h3><div class="pivot-detail"><div class="p"><span>P</span><b>2,387.67</b></div><div class="r"><span>R1</span><b>2,495.13</b></div><div class="r"><span>R2</span><b>2,567.47</b></div><div class="r"><span>R3</span><b>2,674.93</b></div><div class="s"><span>S1</span><b>2,315.33</b></div><div class="s"><span>S2</span><b>2,207.87</b></div><div class="s"><span>S3</span><b>2,135.53</b></div></div></div>
+</div></div><div class="stock-modal-backdrop" id="stock-modal-SUPREMEIND" onclick="closeStock(event)">
+<div class="stock-modal">
+<button class="modal-close" onclick="hideStock()">×</button>
+<div class="modal-head"><div><div class="eyebrow">STWP STOCK DETAIL</div><h2>SUPREMEIND</h2><span class="modal-badge">DEVELOPING · BULLISH</span></div><div class="modal-ltp"><small>LTP</small><strong>₹3,580.30</strong></div></div>
+<div class="detail-section"><h3>Market Intelligence</h3><div class="data-grid">
+<div><span>Status</span><b>DEVELOPING · BULLISH</b></div><div><span>Expected Move</span><b>+4.3% → 3735.57 · 1–3 sessions</b></div><div><span>Candlestick Pattern</span><b>Bullish Marubozu</b></div><div><span>Support</span><b>3425.03 / 3269.77 / 3192.13</b></div><div><span>Resistance</span><b>3657.93 / 3735.57 / 3890.83</b></div>
+</div></div>
+<div class="detail-section"><h3>Technical Data</h3><div class="data-grid">
+<div><span>Open</span><b>3,347.40</b></div><div><span>High</span><b>3,580.30</b></div><div><span>Low</span><b>3,347.40</b></div><div><span>Close</span><b>3,580.30</b></div>
+<div><span>Volume</span><b>393,297.00</b></div><div><span>20D Avg Volume</span><b>196,227.15</b></div><div><span>RSI</span><b>55.75</b></div><div><span>MACD</span><b>-14.89</b></div><div><span>ADX</span><b>20.01</b></div><div><span>VWAP</span><b>3,471.16</b></div><div><span>ATR</span><b>108.64</b></div><div><span>Sector</span><b>plastic products</b></div>
+</div></div>
+<div class="detail-section"><h3>EMA MAP</h3><div class="ema-detail"><div><span>EMA 20</span><b>3,481.46</b></div><div><span>EMA 50</span><b>3,493.30</b></div><div><span>EMA 100</span><b>3,523.43</b></div><div><span>EMA 200</span><b>3,620.83</b></div></div></div>
+<div class="detail-section"><h3>Pivot Map</h3><div class="pivot-detail"><div class="p"><span>P</span><b>3,502.67</b></div><div class="r"><span>R1</span><b>3,657.93</b></div><div class="r"><span>R2</span><b>3,735.57</b></div><div class="r"><span>R3</span><b>3,890.83</b></div><div class="s"><span>S1</span><b>3,425.03</b></div><div class="s"><span>S2</span><b>3,269.77</b></div><div class="s"><span>S3</span><b>3,192.13</b></div></div></div>
+</div></div><div class="stock-modal-backdrop" id="stock-modal-SYRMA" onclick="closeStock(event)">
+<div class="stock-modal">
+<button class="modal-close" onclick="hideStock()">×</button>
+<div class="modal-head"><div><div class="eyebrow">STWP STOCK DETAIL</div><h2>SYRMA</h2><span class="modal-badge">STRONG · BULLISH</span></div><div class="modal-ltp"><small>LTP</small><strong>₹1,728.90</strong></div></div>
+<div class="detail-section"><h3>Market Intelligence</h3><div class="data-grid">
+<div><span>Status</span><b>STRONG · BULLISH</b></div><div><span>Expected Move</span><b>+7.2% → 1853.63 · 1–3 sessions</b></div><div><span>Candlestick Pattern</span><b>Not detected</b></div><div><span>Support</span><b>1639.27 / 1549.63 / 1487.27</b></div><div><span>Resistance</span><b>1791.27 / 1853.63 / 1943.27</b></div>
+</div></div>
+<div class="detail-section"><h3>Technical Data</h3><div class="data-grid">
+<div><span>Open</span><b>1,614.10</b></div><div><span>High</span><b>1,764.00</b></div><div><span>Low</span><b>1,612.00</b></div><div><span>Close</span><b>1,728.90</b></div>
+<div><span>Volume</span><b>10,474,149.00</b></div><div><span>20D Avg Volume</span><b>2,448,928.95</b></div><div><span>RSI</span><b>70.14</b></div><div><span>MACD</span><b>11.60</b></div><div><span>ADX</span><b>20.76</b></div><div><span>VWAP</span><b>1,724.53</b></div><div><span>ATR</span><b>89.99</b></div><div><span>Sector</span><b>consumer discretionary</b></div>
+</div></div>
+<div class="detail-section"><h3>EMA MAP</h3><div class="ema-detail"><div><span>EMA 20</span><b>1,543.12</b></div><div><span>EMA 50</span><b>1,458.59</b></div><div><span>EMA 100</span><b>1,330.12</b></div><div><span>EMA 200</span><b>1,146.22</b></div></div></div>
+<div class="detail-section"><h3>Pivot Map</h3><div class="pivot-detail"><div class="p"><span>P</span><b>1,701.63</b></div><div class="r"><span>R1</span><b>1,791.27</b></div><div class="r"><span>R2</span><b>1,853.63</b></div><div class="r"><span>R3</span><b>1,943.27</b></div><div class="s"><span>S1</span><b>1,639.27</b></div><div class="s"><span>S2</span><b>1,549.63</b></div><div class="s"><span>S3</span><b>1,487.27</b></div></div></div>
+</div></div>
+<div class="stock-modal-backdrop" id="stock-modal-TBOTEK" onclick="closeStock(event)">
+<div class="stock-modal">
+<button class="modal-close" onclick="hideStock()">×</button>
+<div class="modal-head"><div><div class="eyebrow">STWP STOCK DETAIL</div><h2>TBOTEK</h2><span class="modal-badge">DEVELOPING · BULLISH</span></div><div class="modal-ltp"><small>LTP</small><strong>₹1,715.00</strong></div></div>
+<div class="detail-section"><h3>Market Intelligence</h3><div class="data-grid">
+<div><span>Status</span><b>DEVELOPING · BULLISH</b></div><div><span>Expected Move</span><b>+3.8% → 1780.8 · 1–3 sessions</b></div><div><span>Candlestick Pattern</span><b>Not detected</b></div><div><span>Support</span><b>1662.9 / 1610.8 / 1577.9</b></div><div><span>Resistance</span><b>1747.9 / 1780.8 / 1832.9</b></div>
+</div></div>
+<div class="detail-section"><h3>Technical Data</h3><div class="data-grid">
+<div><span>Open</span><b>1,650.00</b></div><div><span>High</span><b>1,728.70</b></div><div><span>Low</span><b>1,643.70</b></div><div><span>Close</span><b>1,715.00</b></div>
+<div><span>Volume</span><b>212,106.00</b></div><div><span>20D Avg Volume</span><b>143,393.20</b></div><div><span>RSI</span><b>56.70</b></div><div><span>MACD</span><b>-10.35</b></div><div><span>ADX</span><b>24.13</b></div><div><span>VWAP</span><b>1,708.32</b></div><div><span>ATR</span><b>57.72</b></div><div><span>Sector</span><b>i.t</b></div>
+</div></div>
+<div class="detail-section"><h3>EMA MAP</h3><div class="ema-detail"><div><span>EMA 20</span><b>1,676.86</b></div><div><span>EMA 50</span><b>1,612.50</b></div><div><span>EMA 100</span><b>1,526.02</b></div><div><span>EMA 200</span><b>1,470.57</b></div></div></div>
+<div class="detail-section"><h3>Pivot Map</h3><div class="pivot-detail"><div class="p"><span>P</span><b>1,695.80</b></div><div class="r"><span>R1</span><b>1,747.90</b></div><div class="r"><span>R2</span><b>1,780.80</b></div><div class="r"><span>R3</span><b>1,832.90</b></div><div class="s"><span>S1</span><b>1,662.90</b></div><div class="s"><span>S2</span><b>1,610.80</b></div><div class="s"><span>S3</span><b>1,577.90</b></div></div></div>
+</div></div><div class="stock-modal-backdrop" id="stock-modal-TECHNOE" onclick="closeStock(event)">
+<div class="stock-modal">
+<button class="modal-close" onclick="hideStock()">×</button>
+<div class="modal-head"><div><div class="eyebrow">STWP STOCK DETAIL</div><h2>TECHNOE</h2><span class="modal-badge">DEVELOPING · BULLISH</span></div><div class="modal-ltp"><small>LTP</small><strong>₹1,030.45</strong></div></div>
+<div class="detail-section"><h3>Market Intelligence</h3><div class="data-grid">
+<div><span>Status</span><b>DEVELOPING · BULLISH</b></div><div><span>Expected Move</span><b>+3.7% → 1069.08 · 1–3 sessions</b></div><div><span>Candlestick Pattern</span><b>Not detected</b></div><div><span>Support</span><b>1000.37 / 970.28 / 950.97</b></div><div><span>Resistance</span><b>1049.77 / 1069.08 / 1099.17</b></div>
+</div></div>
+<div class="detail-section"><h3>Technical Data</h3><div class="data-grid">
+<div><span>Open</span><b>990.30</b></div><div><span>High</span><b>1,039.00</b></div><div><span>Low</span><b>989.60</b></div><div><span>Close</span><b>1,030.45</b></div>
+<div><span>Volume</span><b>286,285.00</b></div><div><span>20D Avg Volume</span><b>146,230.05</b></div><div><span>RSI</span><b>59.66</b></div><div><span>MACD</span><b>4.81</b></div><div><span>ADX</span><b>11.82</b></div><div><span>VWAP</span><b>1,016.71</b></div><div><span>ATR</span><b>33.21</b></div><div><span>Sector</span><b>realty</b></div>
+</div></div>
+<div class="detail-section"><h3>EMA MAP</h3><div class="ema-detail"><div><span>EMA 20</span><b>985.72</b></div><div><span>EMA 50</span><b>1,006.36</b></div><div><span>EMA 100</span><b>1,042.29</b></div><div><span>EMA 200</span><b>1,096.54</b></div></div></div>
+<div class="detail-section"><h3>Pivot Map</h3><div class="pivot-detail"><div class="p"><span>P</span><b>1,019.68</b></div><div class="r"><span>R1</span><b>1,049.77</b></div><div class="r"><span>R2</span><b>1,069.08</b></div><div class="r"><span>R3</span><b>1,099.17</b></div><div class="s"><span>S1</span><b>1,000.37</b></div><div class="s"><span>S2</span><b>970.28</b></div><div class="s"><span>S3</span><b>950.97</b></div></div></div>
+</div></div><div class="stock-modal-backdrop" id="stock-modal-UNOMINDA" onclick="closeStock(event)">
+<div class="stock-modal">
+<button class="modal-close" onclick="hideStock()">×</button>
+<div class="modal-head"><div><div class="eyebrow">STWP STOCK DETAIL</div><h2>UNOMINDA</h2><span class="modal-badge">DEVELOPING · BULLISH</span></div><div class="modal-ltp"><small>LTP</small><strong>₹1,284.00</strong></div></div>
+<div class="detail-section"><h3>Market Intelligence</h3><div class="data-grid">
+<div><span>Status</span><b>DEVELOPING · BULLISH</b></div><div><span>Expected Move</span><b>+4% → 1335.47 · 1–3 sessions</b></div><div><span>Candlestick Pattern</span><b>Bullish Marubozu</b></div><div><span>Support</span><b>1232.53 / 1181.07 / 1155.33</b></div><div><span>Resistance</span><b>1309.73 / 1335.47 / 1386.93</b></div>
+</div></div>
+<div class="detail-section"><h3>Technical Data</h3><div class="data-grid">
+<div><span>Open</span><b>1,213.20</b></div><div><span>High</span><b>1,284.00</b></div><div><span>Low</span><b>1,206.80</b></div><div><span>Close</span><b>1,284.00</b></div>
+<div><span>Volume</span><b>1,173,516.00</b></div><div><span>20D Avg Volume</span><b>677,690.60</b></div><div><span>RSI</span><b>60.03</b></div><div><span>MACD</span><b>-3.97</b></div><div><span>ADX</span><b>19.55</b></div><div><span>VWAP</span><b>1,244.15</b></div><div><span>ATR</span><b>37.60</b></div><div><span>Sector</span><b>auto</b></div>
+</div></div>
+<div class="detail-section"><h3>EMA MAP</h3><div class="ema-detail"><div><span>EMA 20</span><b>1,232.32</b></div><div><span>EMA 50</span><b>1,214.66</b></div><div><span>EMA 100</span><b>1,188.06</b></div><div><span>EMA 200</span><b>1,168.24</b></div></div></div>
+<div class="detail-section"><h3>Pivot Map</h3><div class="pivot-detail"><div class="p"><span>P</span><b>1,258.27</b></div><div class="r"><span>R1</span><b>1,309.73</b></div><div class="r"><span>R2</span><b>1,335.47</b></div><div class="r"><span>R3</span><b>1,386.93</b></div><div class="s"><span>S1</span><b>1,232.53</b></div><div class="s"><span>S2</span><b>1,181.07</b></div><div class="s"><span>S3</span><b>1,155.33</b></div></div></div>
+</div></div>
+<div class="stock-modal-backdrop" id="stock-modal-VENUSPIPES" onclick="closeStock(event)">
+<div class="stock-modal">
+<button class="modal-close" onclick="hideStock()">×</button>
+<div class="modal-head"><div><div class="eyebrow">STWP STOCK DETAIL</div><h2>VENUSPIPES</h2><span class="modal-badge">STRONG · BULLISH</span></div><div class="modal-ltp"><small>LTP</small><strong>₹2,282.90</strong></div></div>
+<div class="detail-section"><h3>Market Intelligence</h3><div class="data-grid">
+<div><span>Status</span><b>STRONG · BULLISH</b></div><div><span>Expected Move</span><b>+6.3% → 2426.43 · 1–3 sessions</b></div><div><span>Candlestick Pattern</span><b>Not detected</b></div><div><span>Support</span><b>2165.57 / 2048.23 / 1976.47</b></div><div><span>Resistance</span><b>2354.67 / 2426.43 / 2543.77</b></div>
+</div></div>
+<div class="detail-section"><h3>Technical Data</h3><div class="data-grid">
+<div><span>Open</span><b>2,123.10</b></div><div><span>High</span><b>2,309.10</b></div><div><span>Low</span><b>2,120.00</b></div><div><span>Close</span><b>2,282.90</b></div>
+<div><span>Volume</span><b>1,274,312.00</b></div><div><span>20D Avg Volume</span><b>334,350.30</b></div><div><span>RSI</span><b>81.01</b></div><div><span>MACD</span><b>52.78</b></div><div><span>ADX</span><b>35.84</b></div><div><span>VWAP</span><b>2,230.48</b></div><div><span>ATR</span><b>126.25</b></div><div><span>Sector</span><b>metals &amp; mining</b></div>
+</div></div>
+<div class="detail-section"><h3>EMA MAP</h3><div class="ema-detail"><div><span>EMA 20</span><b>1,854.77</b></div><div><span>EMA 50</span><b>1,723.21</b></div><div><span>EMA 100</span><b>1,603.47</b></div><div><span>EMA 200</span><b>1,484.77</b></div></div></div>
+<div class="detail-section"><h3>Pivot Map</h3><div class="pivot-detail"><div class="p"><span>P</span><b>2,237.33</b></div><div class="r"><span>R1</span><b>2,354.67</b></div><div class="r"><span>R2</span><b>2,426.43</b></div><div class="r"><span>R3</span><b>2,543.77</b></div><div class="s"><span>S1</span><b>2,165.57</b></div><div class="s"><span>S2</span><b>2,048.23</b></div><div class="s"><span>S3</span><b>1,976.47</b></div></div></div>
+</div></div><div class="stock-modal-backdrop" id="stock-modal-VIJAYA" onclick="closeStock(event)">
+<div class="stock-modal">
+<button class="modal-close" onclick="hideStock()">×</button>
+<div class="modal-head"><div><div class="eyebrow">STWP STOCK DETAIL</div><h2>VIJAYA</h2><span class="modal-badge">DEVELOPING · BULLISH</span></div><div class="modal-ltp"><small>LTP</small><strong>₹1,558.90</strong></div></div>
+<div class="detail-section"><h3>Market Intelligence</h3><div class="data-grid">
+<div><span>Status</span><b>DEVELOPING · BULLISH</b></div><div><span>Expected Move</span><b>+3.8% → 1617.63 · 1–3 sessions</b></div><div><span>Candlestick Pattern</span><b>Not detected</b></div><div><span>Support</span><b>1510.27 / 1461.63 / 1432.27</b></div><div><span>Resistance</span><b>1588.27 / 1617.63 / 1666.27</b></div>
+</div></div>
+<div class="detail-section"><h3>Technical Data</h3><div class="data-grid">
+<div><span>Open</span><b>1,510.00</b></div><div><span>High</span><b>1,569.00</b></div><div><span>Low</span><b>1,491.00</b></div><div><span>Close</span><b>1,558.90</b></div>
+<div><span>Volume</span><b>278,137.00</b></div><div><span>20D Avg Volume</span><b>155,246.00</b></div><div><span>RSI</span><b>63.96</b></div><div><span>MACD</span><b>-1.52</b></div><div><span>ADX</span><b>28.05</b></div><div><span>VWAP</span><b>1,546.77</b></div><div><span>ATR</span><b>61.94</b></div><div><span>Sector</span><b>healthcare</b></div>
+</div></div>
+<div class="detail-section"><h3>EMA MAP</h3><div class="ema-detail"><div><span>EMA 20</span><b>1,485.13</b></div><div><span>EMA 50</span><b>1,436.00</b></div><div><span>EMA 100</span><b>1,351.48</b></div><div><span>EMA 200</span><b>1,240.18</b></div></div></div>
+<div class="detail-section"><h3>Pivot Map</h3><div class="pivot-detail"><div class="p"><span>P</span><b>1,539.63</b></div><div class="r"><span>R1</span><b>1,588.27</b></div><div class="r"><span>R2</span><b>1,617.63</b></div><div class="r"><span>R3</span><b>1,666.27</b></div><div class="s"><span>S1</span><b>1,510.27</b></div><div class="s"><span>S2</span><b>1,461.63</b></div><div class="s"><span>S3</span><b>1,432.27</b></div></div></div>
+</div></div>
+<div class="stock-modal-backdrop" id="stock-modal-WELCORP" onclick="closeStock(event)">
+<div class="stock-modal">
+<button class="modal-close" onclick="hideStock()">×</button>
+<div class="modal-head"><div><div class="eyebrow">STWP STOCK DETAIL</div><h2>WELCORP</h2><span class="modal-badge">DEVELOPING · BULLISH</span></div><div class="modal-ltp"><small>LTP</small><strong>₹2,660.10</strong></div></div>
+<div class="detail-section"><h3>Market Intelligence</h3><div class="data-grid">
+<div><span>Status</span><b>DEVELOPING · BULLISH</b></div><div><span>Expected Move</span><b>+5.6% → 2809.9 · 1–5 sessions</b></div><div><span>Candlestick Pattern</span><b>Bullish Marubozu</b></div><div><span>Support</span><b>2528.9 / 2397.7 / 2322.8</b></div><div><span>Resistance</span><b>2735 / 2809.9 / 2941.1</b></div>
+</div></div>
+<div class="detail-section"><h3>Technical Data</h3><div class="data-grid">
+<div><span>Open</span><b>2,472.60</b></div><div><span>High</span><b>2,678.70</b></div><div><span>Low</span><b>2,472.60</b></div><div><span>Close</span><b>2,660.10</b></div>
+<div><span>Volume</span><b>4,629,365.00</b></div><div><span>20D Avg Volume</span><b>3,686,580.30</b></div><div><span>RSI</span><b>64.88</b></div><div><span>MACD</span><b>-28.94</b></div><div><span>ADX</span><b>48.59</b></div><div><span>VWAP</span><b>2,612.22</b></div><div><span>ATR</span><b>156.76</b></div><div><span>Sector</span><b>industrials</b></div>
+</div></div>
+<div class="detail-section"><h3>EMA MAP</h3><div class="ema-detail"><div><span>EMA 20</span><b>2,441.66</b></div><div><span>EMA 50</span><b>2,129.92</b></div><div><span>EMA 100</span><b>1,804.63</b></div><div><span>EMA 200</span><b>1,470.47</b></div></div></div>
+<div class="detail-section"><h3>Pivot Map</h3><div class="pivot-detail"><div class="p"><span>P</span><b>2,603.80</b></div><div class="r"><span>R1</span><b>2,735.00</b></div><div class="r"><span>R2</span><b>2,809.90</b></div><div class="r"><span>R3</span><b>2,941.10</b></div><div class="s"><span>S1</span><b>2,528.90</b></div><div class="s"><span>S2</span><b>2,397.70</b></div><div class="s"><span>S3</span><b>2,322.80</b></div></div></div>
+</div></div><div class="stock-modal-backdrop" id="stock-modal-YATHARTH" onclick="closeStock(event)">
+<div class="stock-modal">
+<button class="modal-close" onclick="hideStock()">×</button>
+<div class="modal-head"><div><div class="eyebrow">STWP STOCK DETAIL</div><h2>YATHARTH</h2><span class="modal-badge">STRONG · BULLISH</span></div><div class="modal-ltp"><small>LTP</small><strong>₹1,139.50</strong></div></div>
+<div class="detail-section"><h3>Market Intelligence</h3><div class="data-grid">
+<div><span>Status</span><b>STRONG · BULLISH</b></div><div><span>Expected Move</span><b>+8.5% → 1236.9 · 1–3 sessions</b></div><div><span>Candlestick Pattern</span><b>Not detected</b></div><div><span>Support</span><b>1086.6 / 1033.7 / 985</b></div><div><span>Resistance</span><b>1188.2 / 1236.9 / 1289.8</b></div>
+</div></div>
+<div class="detail-section"><h3>Technical Data</h3><div class="data-grid">
+<div><span>Open</span><b>1,098.00</b></div><div><span>High</span><b>1,184.00</b></div><div><span>Low</span><b>1,082.40</b></div><div><span>Close</span><b>1,139.50</b></div>
+<div><span>Volume</span><b>6,484,052.00</b></div><div><span>20D Avg Volume</span><b>952,231.70</b></div><div><span>RSI</span><b>79.48</b></div><div><span>MACD</span><b>10.33</b></div><div><span>ADX</span><b>45.12</b></div><div><span>VWAP</span><b>1,139.48</b></div><div><span>ATR</span><b>53.13</b></div><div><span>Sector</span><b>healthcare</b></div>
+</div></div>
+<div class="detail-section"><h3>EMA MAP</h3><div class="ema-detail"><div><span>EMA 20</span><b>980.85</b></div><div><span>EMA 50</span><b>921.01</b></div><div><span>EMA 100</span><b>867.55</b></div><div><span>EMA 200</span><b>802.38</b></div></div></div>
+<div class="detail-section"><h3>Pivot Map</h3><div class="pivot-detail"><div class="p"><span>P</span><b>1,135.30</b></div><div class="r"><span>R1</span><b>1,188.20</b></div><div class="r"><span>R2</span><b>1,236.90</b></div><div class="r"><span>R3</span><b>1,289.80</b></div><div class="s"><span>S1</span><b>1,086.60</b></div><div class="s"><span>S2</span><b>1,033.70</b></div><div class="s"><span>S3</span><b>985.00</b></div></div></div>
+</div></div><div class="stock-modal-backdrop" id="stock-modal-ZYDUSLIFE" onclick="closeStock(event)">
+<div class="stock-modal">
+<button class="modal-close" onclick="hideStock()">×</button>
+<div class="modal-head"><div><div class="eyebrow">STWP STOCK DETAIL</div><h2>ZYDUSLIFE</h2><span class="modal-badge">DEVELOPING · BULLISH</span></div><div class="modal-ltp"><small>LTP</small><strong>₹1,160.00</strong></div></div>
+<div class="detail-section"><h3>Market Intelligence</h3><div class="data-grid">
+<div><span>Status</span><b>DEVELOPING · BULLISH</b></div><div><span>Expected Move</span><b>+1.5% → 1177.93 · 1–3 sessions</b></div><div><span>Candlestick Pattern</span><b>Not detected</b></div><div><span>Support</span><b>1149.37 / 1138.73 / 1129.77</b></div><div><span>Resistance</span><b>1168.97 / 1177.93 / 1188.57</b></div>
+</div></div>
+<div class="detail-section"><h3>Technical Data</h3><div class="data-grid">
+<div><span>Open</span><b>1,150.70</b></div><div><span>High</span><b>1,167.30</b></div><div><span>Low</span><b>1,147.70</b></div><div><span>Close</span><b>1,160.00</b></div>
+<div><span>Volume</span><b>2,481,191.00</b></div><div><span>20D Avg Volume</span><b>1,317,955.90</b></div><div><span>RSI</span><b>55.73</b></div><div><span>MACD</span><b>-1.00</b></div><div><span>ADX</span><b>13.79</b></div><div><span>VWAP</span><b>1,157.65</b></div><div><span>ATR</span><b>31.43</b></div><div><span>Sector</span><b>healthcare</b></div>
+</div></div>
+<div class="detail-section"><h3>EMA MAP</h3><div class="ema-detail"><div><span>EMA 20</span><b>1,134.82</b></div><div><span>EMA 50</span><b>1,125.56</b></div><div><span>EMA 100</span><b>1,090.22</b></div><div><span>EMA 200</span><b>1,041.40</b></div></div></div>
+<div class="detail-section"><h3>Pivot Map</h3><div class="pivot-detail"><div class="p"><span>P</span><b>1,158.33</b></div><div class="r"><span>R1</span><b>1,168.97</b></div><div class="r"><span>R2</span><b>1,177.93</b></div><div class="r"><span>R3</span><b>1,188.57</b></div><div class="s"><span>S1</span><b>1,149.37</b></div><div class="s"><span>S2</span><b>1,138.73</b></div><div class="s"><span>S3</span><b>1,129.77</b></div></div></div>
+</div></div><script>
+function openStock(sym){var el=document.getElementById('stock-modal-'+sym);if(!el)return false;el.style.display='block';document.body.classList.add('modal-open');document.body.style.overflow='hidden';return false;}
+function hideStock(){document.querySelectorAll('.stock-modal-backdrop').forEach(function(el){el.style.display='none';});document.body.classList.remove('modal-open');document.body.style.overflow='';}
+function closeStock(e){if(e.target===e.currentTarget)hideStock();}
+document.addEventListener('keydown',function(e){if(e.key==='Escape')hideStock();});
+document.addEventListener('DOMContentLoaded',function(){document.querySelectorAll('.stock-link').forEach(function(a){a.addEventListener('click',function(e){e.preventDefault();openStock((this.getAttribute('href')||'').replace('#stock-',''));});});});
+</script>
+</body>
+</html>
